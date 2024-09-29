@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Lexpert = () => {
+const News = () => {
   return (
     <div>
-      Lexpert
+      News
     </div>
   )
 }
 
-export default Lexpert
+export default News
