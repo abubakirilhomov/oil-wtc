@@ -1,25 +1,96 @@
+"use client"
+
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const router = useRouter()
+
+  const sidebarLinks = [
+    {
+      label: 'О нас',
+      href: '/about-us',
+    },{
+      label: 'Каталог',
+      href: '/catalog',
+    },{
+      label: 'Новости',
+      href: '/news',
+    },{
+      label: 'Контакты',
+      href: '/contacts',
+    },
+  ]
+
+  const handleNavigation = (href) => {
+    setIsMenuOpen(false)
+    router.push(href)
+  }
+
   return (
-    <div className='flex w-full justify-between items-center container max-w-[90%] mx-auto'>
-      <div>
-        <Image src="/Logo b.png" width={150} height={150}/>
-      </div>
-      <ul className='flex p-8 justify-between w-6/12 items-center'>
-      <Link href="/about-us"><li>О нас</li></Link>
-      <Link href="/catalog"><li>Каталог</li></Link>
-      <Link href="/news"><li>Новости</li></Link>
-      <Link href="/contacts"><li>Контакты</li></Link>
-      </ul>
-      <div>
-        <button className='btn rounded-full px-8 bg-gradient-to-r from-[#FABA49] to-[#F9B22B] text-[#263699] '>
+    <nav className='relative w-full bg-white shadow-md'>
+      <div className='flex items-center justify-between px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
+        <div className='flex items-center flex-shrink-0'>
+          <Link href="/" onClick={() => setIsMenuOpen(false)}>
+            <Image src="/Logo b.png" width={150} height={150} alt="Logo" className="w-auto h-8 sm:h-10" />
+          </Link>
+        </div>
+        <div className='hidden lg:flex lg:items-center lg:justify-center lg:flex-1'>
+          <ul className='flex space-x-8'>
+            {sidebarLinks.map((link, index) => (
+              <li key={index}>
+                <Link href={link.href}>
+                  <p className='text-base font-medium text-gray-500 hover:text-[#273B78] focus:font-bold'>
+                    {link.label}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className='hidden lg:block'>
+          <button className='px-6 py-2 text-base font-medium text-[#263699] bg-gradient-to-r from-[#FABA49] to-[#F9B22B] rounded-full hover:from-[#F9B22B] hover:to-[#FABA49] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FABA49]'>
             Buy now
-        </button>
+          </button>
+        </div>
+        <div className='flex lg:hidden'>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className='inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500'
+            aria-expanded='false'
+          >
+            <span className='sr-only'>Open main menu</span>
+            {isMenuOpen ? (
+              <span className='text-xl font-bold'>✕</span>
+            ) : (
+              <span className='text-xl font-bold'>☰</span>
+            )}
+          </button>
+        </div>
       </div>
-    </div>
+      {/* Mobile menu */}
+      <div className={`${isMenuOpen ? 'block' : 'hidden'} lg:hidden`}>
+        <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3'>
+          {sidebarLinks.map((link, index) => (
+            <button
+              key={index}
+              className='block w-full text-left px-3 py-2 text-base font-medium text-gray-500 rounded-md hover:text-[#273B78] hover:bg-gray-50'
+              onClick={() => handleNavigation(link.href)}
+            >
+              {link.label}
+            </button>
+          ))}
+        </div>
+        <div className='px-4 py-3'>
+          <button className='w-full px-6 py-2 text-base font-medium text-[#263699] bg-gradient-to-r from-[#FABA49] to-[#F9B22B] rounded-full hover:from-[#F9B22B] hover:to-[#FABA49] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FABA49]'>
+            Buy now
+          </button>
+        </div>
+      </div>
+    </nav>
   )
 }
 
