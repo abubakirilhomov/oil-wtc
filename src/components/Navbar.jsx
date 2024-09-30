@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <nav className='relative w-full bg-white shadow-md'>
-      <div className='flex items-center justify-between px-4 py-4 mx-auto max-w-7xl sm:px-6 lg:px-8'>
+      <div className='flex items-center justify-between px-4 py-4 mx-auto sm:px-6 lg:px-0 max-w-[90%]'>
         <div className='flex items-center flex-shrink-0'>
           <Link href="/" onClick={() => setIsMenuOpen(false)}>
             <Image src="/Logo b.png" width={150} height={150} alt="Logo" className="w-auto h-8 sm:h-10" />
@@ -85,7 +85,7 @@ const Navbar = () => {
           ))}
         </div>
         <div className='px-4 py-3'>
-          <button className='w-full px-6 py-2 text-base font-medium text-[#263699] bg-gradient-to-r from-[#FABA49] to-[#F9B22B] rounded-full hover:from-[#F9B22B] hover:to-[#FABA49] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FABA49]'>
+          <button className='w-full btn px-6 py-2 text-base font-medium text-[#263699] bg-gradient-to-r from-[#FABA49] to-[#F9B22B] rounded-full hover:from-[#F9B22B] hover:to-[#FABA49] focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-90 focus:ring-[#FABA49]'>
             Buy now
           </button>
         </div>
