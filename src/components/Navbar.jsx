@@ -52,21 +52,21 @@ const Navbar = () => {
           </ul>
         </div>
         <div className='hidden lg:block'>
-          <button className='px-6 py-2 text-base font-medium text-[#263699] bg-gradient-to-r from-[#FABA49] to-[#F9B22B] rounded-full hover:from-[#F9B22B] hover:to-[#FABA49] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FABA49]'>
+          <button className='px-6 py-2 text-base font-medium text-[#263699] bg-gradient-to-r from-[#FABA49] to-[#F9B22B] rounded-full hover:from-[#F9B22B] hover:to-[#FABA49] focus:outline-none btn'>
             Buy now
           </button>
         </div>
         <div className='flex lg:hidden'>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className='inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500'
+            className='inline-flex items-center justify-center  text-gray-400 rounded-md hover:text-gray-500 focus:outline-none'
             aria-expanded='false'
           >
-            <span className='sr-only'>Open main menu</span>
+            <span className='sr-only outline-none'>Open main menu</span>
             {isMenuOpen ? (
-              <span className='text-xl font-bold'>✕</span>
+              <span className='text-xl font-bold outline-none'>✕</span>
             ) : (
-              <span className='text-xl font-bold'>☰</span>
+              <span className='text-xl font-bold outline-none'>☰</span>
             )}
           </button>
         </div>
@@ -85,7 +85,7 @@ const Navbar = () => {
           ))}
         </div>
         <div className='px-4 py-3'>
-          <button className='w-full btn px-6 py-2 text-base font-medium text-[#263699] bg-gradient-to-r from-[#FABA49] to-[#F9B22B] rounded-full hover:from-[#F9B22B] hover:to-[#FABA49] focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-90 focus:ring-[#FABA49]'>
+          <button className='w-full btn px-6 py-2 text-base font-medium text-[#263699] bg-gradient-to-r from-[#FABA49] to-[#F9B22B] rounded-full hover:from-[#F9B22B] hover:to-[#FABA49] focus:outline-none active:scale-90'>
             Buy now
           </button>
         </div>
