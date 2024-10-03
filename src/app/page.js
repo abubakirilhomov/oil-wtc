@@ -1,10 +1,7 @@
-'use client';  // Required for using client-side code in Next.js
-
-import React from 'react';
+'use client'; 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 
-// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -24,11 +21,14 @@ const slides = [
   },
 ];
 
+
+
+
 export default function Home() {
   return (
     <div className="relative">
       <Swiper
-        modules={[Pagination, Autoplay]} // Removed Navigation
+        modules={[Pagination, Autoplay]} 
         spaceBetween={0}
         slidesPerView={1}
         pagination={{ 
@@ -43,7 +43,7 @@ export default function Home() {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative flex flex-col md:flex-row w-full md:h-[500px] lg:h-[700px]">
+            <div className=" container relative flex flex-col md:flex-row w-full md:h-[500px] lg:h-[700px]">
               <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-16">
                 <h2 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
                   {slide.title}
