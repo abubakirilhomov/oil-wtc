@@ -24,7 +24,6 @@ const SwiperProduct = () => {
         {products.map((product) => (
           <SwiperSlide key={product.id}>
             <div className="relative group w-full h-72 bg-gray-200 rounded-lg overflow-hidden">
-              {/* Image */}
               <img src={product.image} alt={product.name} className="object-cover w-full h-full group-hover:opacity-0 transition-opacity duration-300" />
               {/* Info */}
               <div className="absolute inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
