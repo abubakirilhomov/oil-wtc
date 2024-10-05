@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import OilChoice from "./oil-choice/page";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,13 @@ export default function RootLayout({ children }) {
         <header>
           <Navbar />
         </header>
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen container mx-auto">
+          {children}
+           
+        </main>
+        <section className="min-h-screen container mx-auto">
+        <OilChoice/>
+        </section>
         <footer><Footer/></footer>
       </body>
     </html>
