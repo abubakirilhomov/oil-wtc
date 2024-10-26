@@ -1,34 +1,32 @@
-'use client'; 
+'use client';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-const slides = [
-  {
-    image: 'https://lemarc.ru/uploads/banner_images/35da12d4a90c7285f1c4d07eda65f6c5.png',
-    title: 'Набор QUALARD 5W-40 + Lemarc',
-    subtitle: 'LEXPERT',
-    description: 'Скоро в продаже!',
-    buttonText: 'Проверить двигатель с LEXPERT!',
-  },
-  {
-    image: 'https://lemarc.ru/uploads/banner_images/97d561f926ce8ae8027bfe3595c3cfa5.png',
-    title: 'Защита двигателя',
-    subtitle: 'теперь в наших руках',
-    description: 'LEMARC x ATOMIC HEART',
-  },
-];
+export default function Banner() {
+  const [slides, setSlides] = useState([]);
 
+  const fetchBanners = async () => {
+    try {
+      const response = await fetch('http://localhost:9000/api/v1/banners');
+      const data = await response.json();
+      setSlides(data.data); // Assuming the data is in the "data" field
+    } catch (error) {
+      console.error('Error fetching banners:', error);
+    }
+  };
 
+  useEffect(() => {
+    fetchBanners();
+  }, []);
 
-
-export default function Home() {
   return (
     <div className="relative">
       <Swiper
-        modules={[Pagination, Autoplay]} 
+        modules={[Pagination, Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
         pagination={{ 
@@ -39,18 +37,15 @@ export default function Home() {
         }}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         loop={true}
-        className="rounded-lg shadow-lg"
+        className="rounded-lg"
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
-            <div className=" container relative flex flex-col md:flex-row w-full md:h-[500px] lg:h-[700px]">
+          <SwiperSlide key={slide._id}>
+            <div className="relative flex flex-col md:flex-row w-full md:h-[500px] lg:h-[700px]">
               <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-16">
-                <h2 className="text-black text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
+                <h2 className=" text-5xl font-bold md:text-5xl lg:text-6xl  bg-gradient-to-r from-blue-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
                   {slide.title}
                 </h2>
-                <h3 className="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-red-500 to-orange-500">
-                  {slide.subtitle}
-                </h3>
                 <p className="text-xl md:text-2xl text-gray-700 mb-6">
                   {slide.description}
                 </p>
@@ -62,7 +57,7 @@ export default function Home() {
               </div>
               <div className="flex-1">
                 <img
-                  src={slide.image}
+                  src={`http://localhost:9000${slide.images[0]}`}
                   alt={slide.title}
                   className="w-full h-full object-contain"
                 />
