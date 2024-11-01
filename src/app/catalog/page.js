@@ -1,10 +1,9 @@
 import React from 'react'
+import Products from '../products/page'
 
 const Catalog = () => {
   return (
-    <div>
-      Catalog
-    </div>
+    <Products/>
   )
 }
 

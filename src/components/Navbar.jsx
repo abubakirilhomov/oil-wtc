@@ -24,12 +24,10 @@ const Navbar = () => {
       href: '/contacts',
     },
   ]
-
   const handleNavigation = (href) => {
     setIsMenuOpen(false)
     router.push(href)
   }
-
   return (
     <nav className='relative w-full bg-white shadow-md'>
       <div className='flex items-center justify-between px-4 py-4 mx-auto sm:px-6 lg:px-0 max-w-[90%]'>
@@ -71,7 +69,6 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      {/* Mobile menu */}
       <div className={`${isMenuOpen ? 'block' : 'hidden'} lg:hidden`}>
         <div className='px-2 pt-2 pb-3 space-y-1 sm:px-3'>
           {sidebarLinks.map((link, index) => (
@@ -93,5 +90,4 @@ const Navbar = () => {
     </nav>
   )
 }
-
 export default Navbar

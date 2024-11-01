@@ -32,17 +32,9 @@ export default function RootLayout({ children }) {
         <header>
           <Navbar />
         </header>
-        <main className="container mx-auto border-none shadow-none"></main>
-        <section className="container mx-auto">
-          <Banner />
-        </section>
-        <section className=" container mx-auto">
-          <Dvigitel />
-        </section>
-        <section>
-          <ProductSwiper />
-        </section>
-
+        <main className="mx-auto border-none shadow-none">
+          {children}
+        </main>
         <footer>
           <Footer />
         </footer>
