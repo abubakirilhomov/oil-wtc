@@ -7,5 +7,4 @@ const Production = () => {
     </div>
   )
 }
-
 export default Production

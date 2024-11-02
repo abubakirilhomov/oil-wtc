@@ -22,6 +22,12 @@ const Navbar = () => {
     },{
       label: 'Контакты',
       href: '/contacts',
+    },{
+      label: 'Контакты',
+      href: '/contacts',
+    },{
+      label: 'Производство',
+      href: '/production',
     },
   ]
   const handleNavigation = (href) => {
