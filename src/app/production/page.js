@@ -31,7 +31,7 @@ const Production = () => {
       sectionIds: ["production-section", "quality-section", "certification-section"],
       imageSrc: "/path/to/image2.jpg",
       titleFont: "Arial, sans-serif",
-      titleFontSize: "3rem",
+      titleFontSize: "1rem",
       titleColor: "#333",
       highlightedWordFont: "Georgia, serif",
       highlightedWordFontSize: "3rem",
