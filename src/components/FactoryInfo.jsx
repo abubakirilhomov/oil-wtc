@@ -7,7 +7,7 @@ const FactoryInfo = () => {
     <div
       className="relative bg-cover bg-center text-white"
       style={{
-        backgroundImage: `url('/path/to/your/image.png')`, // Replace with your image path
+        backgroundImage: `url('/america.jpg')`, // Correct path for public folder
       }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-50"></div> {/* Overlay */}

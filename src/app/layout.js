@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
         <header>
           <Navbar />
         </header>
-        <main className="mx-auto border-none shadow-none">
+        <main className="mx-auto border-none shadow-none w-full">
           {children}
         </main>
         <footer>
