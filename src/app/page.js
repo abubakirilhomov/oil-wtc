@@ -10,6 +10,8 @@ import Banner from '@/components/Banner';
 import Dvigitel from '@/components/Dvgitel';
 import ProductSwiper from '@/components/ProductSwiper';
 import Otziv from '@/components/Otziv';
+import Partner from '@/components/Partner';
+import FactoryInfo from '@/components/FactoryInfo';
 
 export default function HomePage() {
   return (
@@ -22,6 +24,12 @@ export default function HomePage() {
         </section>
         <section>
           <ProductSwiper />
+        </section>
+        <section>
+        </section>
+        <FactoryInfo/>
+        <section>
+          <Partner/>
         </section>
         <section>
             <Otziv/>
