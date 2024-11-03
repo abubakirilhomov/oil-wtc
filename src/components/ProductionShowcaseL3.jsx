@@ -24,7 +24,7 @@ const ProductionShowcaseL3 = ({
 
     return (
         <div className="flex flex-col container mx-auto items-center py-8 space-y-4">
-            <div className="text-center flex justify-center items-center flex-col w-full md:w-1/2 md:text-left">
+            <div className="text-center flex justify-center items-center flex-col w-full md:text-center">
                 <p 
                     className="font-bold text-3xl sm:text-3xl md:text-4xl lg:text-6xl"
                     style={{ fontFamily: titleFont, color: titleColor }}
