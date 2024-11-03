@@ -1,58 +1,74 @@
 "use client";
-import React, { useEffect, useState } from 'react';
 
-const News = () => {
+import React, { useState, useEffect } from 'react';
+
+const NewsPage = () => {
   const [news, setNews] = useState([]);
-  const [newsType, setNewsType] = useState(''); // Track the selected news type
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
 
   useEffect(() => {
+    // Fetch all news
     fetch('http://localhost:9000/api/v1/news')
       .then((response) => response.json())
       .then((data) => setNews(data))
-      .catch((error) => console.error('Error fetching data:', error));
+      .catch((error) => console.error('Error fetching news:', error));
+
+    // Fetch all categories
+    fetch('http://localhost:9000/api/v1/news-category')
+      .then((response) => response.json())
+      .then((data) => setCategories(data))
+      .catch((error) => console.error('Error fetching categories:', error));
   }, []);
 
-  // Filter news to display only those with the selected newsType or show all if no filter is selected
-  const filteredNews = newsType ? news.filter(item => item.news_type === newsType) : news;
+  // Filter news based on the selected category
+  const filteredNews = selectedCategory
+    ? news.filter(item => item.news_type === selectedCategory)
+    : news;
 
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold mb-8">Новости</h1>
-      
+
+      {/* Category filter buttons */}
       <div className="flex flex-wrap gap-4 mb-8">
-        {['test1', 'test'].map((type, index) => (
+        {categories.map((category) => (
           <button
-            key={index}
-            onClick={() => setNewsType(type)}
+            key={category._id}
+            onClick={() => setSelectedCategory(category.category_name)}
             className={`px-4 py-2 border border-black rounded-full text-sm font-medium hover:bg-gray-200 transition ${
-              newsType === type ? 'bg-gray-200' : ''
+              selectedCategory === category.category_name ? 'bg-gray-200' : ''
             }`}
           >
-            {type}
+            {category.category_name}
           </button>
         ))}
-        {/* Add a button to clear the filter */}
+        {/* Button to clear the filter */}
         <button
-          onClick={() => setNewsType('')}
+          onClick={() => setSelectedCategory('')}
           className="px-4 py-2 border border-black rounded-full text-sm font-medium hover:bg-gray-200 transition"
         >
           Все
         </button>
       </div>
-      
+
+      {/* Display news */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {filteredNews.map((item) => (
-          <div key={item._id} className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <img src={item.images[0]} alt={item.title} className="w-full h-48 object-cover" />
-            <div className="p-6">
-              <p className="text-gray-500 text-sm">{new Date(item.date).toLocaleDateString()}</p>
-              <h2 className="text-xl font-semibold mt-2">{item.title}</h2>
-              <p className="text-gray-700 mt-2">{item.descriptions}</p>
+          <a key={item._id} href={`/news/${item._id}`}>
+            <div className="block bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+              <img src={item.images[0]} alt={item.title} className="w-full h-48 object-cover" />
+              <div className="p-6">
+                <p className="text-gray-500 text-sm">{new Date(item.date).toLocaleDateString()}</p>
+                <h2 className="text-xl font-semibold mt-2">{item.title}</h2>
+                <p className="text-gray-700 mt-2">{item.descriptions.substring(0, 100)}...</p>
+              </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
   );
 };
-export default News;
+
+export default NewsPage;
