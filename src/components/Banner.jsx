@@ -41,7 +41,7 @@ export default function Banner() {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={slide._id}>
-            <div className="relative flex flex-col md:flex-row w-full md:h-[500px] lg:h-[700px]">
+            <div className="relative flex flex-col md:flex-row w-full md:h-[500px] lg:h-[700px] ">
               <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-16">
                 <h2 className=" text-5xl font-bold md:text-5xl lg:text-6xl  bg-gradient-to-r from-blue-600 via-red-500 to-orange-500 bg-clip-text text-transparent">
                   {slide.title}
