@@ -15,7 +15,7 @@ const Production = () => {
       highlightedWord: "Ворсино",
       buttonLabels: ["Компания", "Схема работы", "Мощности"],
       sectionIds: ["company-section", "workflow-section", "capacity-section"],
-      imageSrc: "/path/to/image1.jpg",
+      imageSrc: "https://lemarc.ru/images/production-banner-new.png",
       titleFont: "Roboto, sans-serif",
       titleFontSize: "3.5rem",
       titleColor: "#000",
@@ -54,7 +54,7 @@ const Production = () => {
   ]);
 
   return (
-    <div className="container w-full max-w-[90%] mx-auto">
+    <div className="container w-full max-w-[90%] mx-auto flex flex-col gap-14">
       {layouts.map((layout, index) => {
         switch (layout.layoutType) {
           case "L1":
