@@ -1,8 +1,11 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import ProductionShowcaseL1 from "@/components/ProductionShowcaseL1";
 import ProductionShowcaseL2 from "@/components/ProductionShowcaseL2";
 import ProductionShowcaseL3 from "@/components/ProductionShowcaseL3";
+import ProductionSwiperL1 from "@/components/ProductionSwiperL1";
+import ProductionSwiperL2 from "@/components/ProductionSwiperL2";
+import ProductionSwiperL3 from "@/components/ProductionSwiperL3";
 
 const Production = () => {
   const [layouts] = useState([
@@ -23,39 +26,30 @@ const Production = () => {
       buttonLabelsFontSize: "1rem",
       buttonLabelsColor: "#000",
     },
+  ]);
+
+  const [swipers] = useState([
     {
-      layoutType: "L2",
-      title: "Производственный процесс",
-      highlightedWord: "Технологии",
-      buttonLabels: ["Производство", "Качество", "Сертификация"],
-      sectionIds: ["production-section", "quality-section", "certification-section"],
-      imageSrc: "/path/to/image2.jpg",
-      titleFont: "Arial, sans-serif",
-      titleFontSize: "1rem",
-      titleColor: "#333",
-      highlightedWordFont: "Georgia, serif",
-      highlightedWordFontSize: "3rem",
-      highlightedWordGradient: "bg-gradient-to-r from-green-600 to-blue-500",
-      buttonLabelsFont: "Verdana, sans-serif",
-      buttonLabelsFontSize: "1rem",
-      buttonLabelsColor: "#333",
-    },
-    {
-      layoutType: "L3",
-      title: "Наши Преимущества",
-      highlightedWord: "Оборудование",
-      buttonLabels: ["Преимущества", "Сотрудничество", "Отзывы"],
-      sectionIds: ["advantages-section", "partnership-section", "reviews-section"],
-      imageSrc: "/path/to/image3.jpg",
-      titleFont: "Helvetica, sans-serif",
-      titleFontSize: "3.5rem",
-      titleColor: "#222",
-      highlightedWordFont: "Helvetica, sans-serif",
-      highlightedWordFontSize: "3.5rem",
-      highlightedWordGradient: "bg-gradient-to-r from-purple-600 to-pink-500",
-      buttonLabelsFont: "Tahoma, sans-serif",
-      buttonLabelsFontSize: "1rem",
-      buttonLabelsColor: "#222",
+      layoutType: "L1",
+      title: "Топ Лубрикантс",
+      images: [
+        {
+          url: "https://lemarc.ru/images/about-img.png",
+          title: "Собственный завод в Ворсино",
+        },
+        {
+          url: "https://lemarc.ru/images/about-img.png",
+          title: "Производственный процесс",
+        },
+        {
+          url: "https://lemarc.ru/images/about-img.png",
+          title: "Наши Преимущества",
+        },
+        {
+          url: "https://lemarc.ru/images/about-img.png",
+          title: "Современные технологии производства",
+        },
+      ],
     },
   ]);
 
@@ -66,7 +60,7 @@ const Production = () => {
           case "L1":
             return (
               <ProductionShowcaseL1
-                key={index}
+                key={`layout-${index}`}
                 title={layout.title}
                 highlightedWord={layout.highlightedWord}
                 buttonLabels={layout.buttonLabels}
@@ -86,7 +80,7 @@ const Production = () => {
           case "L2":
             return (
               <ProductionShowcaseL2
-                key={index}
+                key={`layout-${index}`}
                 title={layout.title}
                 highlightedWord={layout.highlightedWord}
                 buttonLabels={layout.buttonLabels}
@@ -106,7 +100,7 @@ const Production = () => {
           case "L3":
             return (
               <ProductionShowcaseL3
-                key={index}
+                key={`layout-${index}`}
                 title={layout.title}
                 highlightedWord={layout.highlightedWord}
                 buttonLabels={layout.buttonLabels}
@@ -121,6 +115,37 @@ const Production = () => {
                 buttonLabelsFont={layout.buttonLabelsFont}
                 buttonLabelsFontSize={layout.buttonLabelsFontSize}
                 buttonLabelsColor={layout.buttonLabelsColor}
+              />
+            );
+          default:
+            return null;
+        }
+      })}
+
+      {swipers.map((swiper, index) => {
+        switch (swiper.layoutType) {
+          case "L1":
+            return (
+              <ProductionSwiperL1
+                key={`swiper-${index}`}
+                images={swiper.images}
+                title={swiper.title}
+              />
+            );
+          case "L2":
+            return (
+              <ProductionSwiperL2
+                key={`swiper-${index}`}
+                images={swiper.images}
+                title={swiper.title}
+              />
+            );
+          case "L3":
+            return (
+              <ProductionSwiperL3
+                key={`swiper-${index}`}
+                images={swiper.images}
+                title={swiper.title}
               />
             );
           default:
