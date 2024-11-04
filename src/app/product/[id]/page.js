@@ -37,14 +37,7 @@ const ProductPage = ({ params }) => {
       <p className="text-lg mb-4">Category: {product.category}</p>
       <p className="text-lg font-bold mb-4">Price: {product.price} UZS</p>
       <p className="text-lg mb-4">Description: {product.description}</p>
-      <a
-        href={`http://localhost:9000/${product.product_info_pdf}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-500 underline"
-      >
-        Download Product Info
-      </a>
+      
     </div>
   );
 };
