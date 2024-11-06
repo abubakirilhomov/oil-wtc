@@ -56,16 +56,14 @@ const ProductionShowcaseL3 = ({
             </div>
 
             <div className="flex-1 flex justify-center items-center space-x-4">
-                {imageSrc.map((src, idx) => (
                     <Image 
-                        key={idx}
-                        src={src} 
-                        alt={`Production Image ${idx + 1}`} 
+                        src={imageSrc} 
+                        alt={`Production Image`} 
                         height={400} 
-                        width={300} 
+                        width={500} 
                         className="rounded-lg shadow-lg object-cover"
                     />
-                ))}
+
             </div>
         </div>
     );

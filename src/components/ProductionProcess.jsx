@@ -1,144 +1,60 @@
-import React from 'react';
-import { FaTrain, FaFlask, FaWarehouse, FaTruck, FaCogs } from 'react-icons/fa';
-import { MdStorage, MdOutlineProductionQuantityLimits } from 'react-icons/md';
+'use client'
 
-const ProductionProcess = () => {
+import React from 'react'
+import { motion } from 'framer-motion'
+import { FaTrain, FaFlask, FaWarehouse, FaTruck, FaCogs } from 'react-icons/fa'
+import { MdStorage, MdOutlineProductionQuantityLimits } from 'react-icons/md'
+
+const iconComponents = {
+  FaTrain,
+  FaFlask,
+  FaWarehouse,
+  FaTruck,
+  FaCogs,
+  MdStorage,
+  MdOutlineProductionQuantityLimits,
+}
+
+export default function ProductionProcess({ cardData = [] }) {
   return (
-    <div className="relative max-w-7xl mx-auto p-8">
-      {/* First row of cards */}
-      <div className="flex items-start justify-between mb-16 relative z-10">
-        <div className="w-1/4 bg-white p-4 rounded-lg relative">
-          <FaTrain className="text-4xl text-blue-500 mb-4" />
-          <div className="w-full h-1 bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 mb-4"></div>
-          <h3 className="text-2xl font-bold mb-3">Доставка сырья</h3>
-          <ul className="list-none">
-            <li className="flex items-start mb-2">
-              <span className="w-3 h-3 rounded-full bg-blue-500 mr-2 mt-1"></span>
-              Собственный железнодорожный путь от Киевского направления МЖД
-            </li>
-          </ul>
-        </div>
-
-        <div className="w-1/4 bg-white p-4 rounded-lg relative">
-          <MdStorage className="text-4xl text-pink-500 mb-4" />
-          <div className="w-full h-1 bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 mb-4"></div>
-          <h3 className="text-2xl font-bold mb-3">Прием и хранение компонентов</h3>
-          <ul className="list-none">
-            <li className="flex items-start mb-2">
-              <span className="w-3 h-3 rounded-full bg-blue-500 mr-2 mt-1"></span>
-              Базовые масла — 14 резервуаров
-            </li>
-            <li className="flex items-start mb-2">
-              <span className="w-3 h-3 rounded-full bg-pink-500 mr-2 mt-1"></span>
-              Присадки — 11 резервуаров
-            </li>
-            <li className="flex items-start mb-2">
-              <span className="w-3 h-3 rounded-full bg-red-500 mr-2 mt-1"></span>
-              Упаковка — 800 паллетомест
-            </li>
-            <li className="flex items-start">
-              <span className="w-3 h-3 rounded-full bg-red-500 mr-2 mt-1"></span>
-              Контроль качества
-            </li>
-          </ul>
-        </div>
-
-        <div className="w-1/4 bg-white p-4 rounded-lg relative">
-          <FaCogs className="text-4xl text-red-500 mb-4" />
-          <div className="w-full h-1 bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 mb-4"></div>
-          <h3 className="text-2xl font-bold mb-3">Блендинг масел</h3>
-          <ul className="list-none">
-            <li className="flex items-start mb-2">
-              <span className="w-3 h-3 rounded-full bg-pink-500 mr-2 mt-1"></span>
-              3 автоматических блендера
-            </li>
-            <li className="flex items-start mb-2">
-              <span className="w-3 h-3 rounded-full bg-blue-500 mr-2 mt-1"></span>
-              Потоковый смеситель
-            </li>
-            <li className="flex items-start">
-              <span className="w-3 h-3 rounded-full bg-red-500 mr-2 mt-1"></span>
-              Контроль качества
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Second row of cards */}
-      <div className="flex items-start justify-between mb-16 relative z-10">
-        <div className="w-1/2 bg-white p-4 rounded-lg relative">
-          <FaFlask className="text-4xl text-blue-500 mb-4" />
-          <div className="w-full h-1 bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 mb-4"></div>
-          <h3 className="text-2xl font-bold mb-3">Лаборатория</h3>
-          <ul className="list-none">
-            <li className="flex items-start">
-              <span className="w-3 h-3 rounded-full bg-blue-500 mr-2 mt-1"></span>
-              Контроль качества на всех этапах производства
-            </li>
-          </ul>
-        </div>
-
-        <div className="w-1/2 bg-white p-4 rounded-lg relative">
-          <MdOutlineProductionQuantityLimits className="text-4xl text-pink-500 mb-4" />
-          <div className="w-full h-1 bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 mb-4"></div>
-          <h3 className="text-2xl font-bold mb-3">Хранение полуфабриката</h3>
-          <ul className="list-none">
-            <li className="flex items-start mb-2">
-              <span className="w-3 h-3 rounded-full bg-blue-500 mr-2 mt-1"></span>
-              16 резервуаров
-            </li>
-            <li className="flex items-start">
-              <span className="w-3 h-3 rounded-full bg-red-500 mr-2 mt-1"></span>
-              Контроль качества
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Third row of cards */}
-      <div className="flex items-start justify-between relative z-10">
-        <div className="w-1/3 bg-white p-4 rounded-lg relative">
-          <FaWarehouse className="text-4xl text-blue-500 mb-4" />
-          <div className="w-full h-1 bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 mb-4"></div>
-          <h3 className="text-2xl font-bold mb-3">6 линий розлива</h3>
-          <ul className="list-none">
-            <li className="flex items-start mb-2">
-              <span className="w-3 h-3 rounded-full bg-blue-500 mr-2 mt-1"></span>
-              1 л, 4 л, 20 л, 2×208 л, 1000 л
-            </li>
-            <li className="flex items-start">
-              <span className="w-3 h-3 rounded-full bg-red-500 mr-2 mt-1"></span>
-              Контроль качества
-            </li>
-          </ul>
-        </div>
-
-        <div className="w-1/3 bg-white p-4 rounded-lg relative">
-          <FaWarehouse className="text-4xl text-pink-500 mb-4" />
-          <div className="w-full h-1 bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 mb-4"></div>
-          <h3 className="text-2xl font-bold mb-3">Хранение готовой продукции</h3>
-          <ul className="list-none">
-            <li className="flex items-start">
-              <span className="w-3 h-3 rounded-full bg-blue-500 mr-2 mt-1"></span>
-              8000 паллетомест
-            </li>
-          </ul>
-        </div>
-
-        <div className="w-1/3 bg-white p-4 rounded-lg relative">
-          <FaTruck className="text-4xl text-orange-500 mb-4" />
-          <div className="w-full h-1 bg-gradient-to-r from-blue-500 via-pink-500 to-red-500 mb-4"></div>
-          <h3 className="text-2xl font-bold mb-3">Доставка готовой продукции</h3>
-          <ul className="list-none">
-            <li className="flex items-start">
-              <span className="w-3 h-3 rounded-full bg-orange-500 mr-2 mt-1"></span>
-              Доставка во все регионы России и страны СНГ
-            </li>
-          </ul>
-        </div>
+    <div className="relative mx-auto py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br rounded-lg from-gray-50 to-gray-100">
+      <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">Производственный Процесс</h2>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {cardData.map((card, index) => {
+          const IconComponent = iconComponents[card.icon] || FaCogs
+          return (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 overflow-hidden relative"
+            >
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 opacity-10 rounded-bl-full"></div>
+              <card.icon   className="text-5xl mb-6 text-yellow-500" />
+              <h3 className="text-2xl font-semibold mb-4 text-gray-800">{card.title}</h3>
+              <ul className="list-none text-gray-600 text-sm leading-7 space-y-2">
+                {card.details.map((detail, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: (index * 0.1) + (i * 0.05) }}
+                    className="flex items-start"
+                  >
+                    <span
+                      className="w-2 h-2 rounded-full mr-3 mt-2 flex-shrink-0"
+                      style={{ backgroundColor: i % 2 === 0 ? '#FABA49' : '#263699' }}
+                    ></span>
+                    <span>{detail}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )
+        })}
       </div>
     </div>
-  );
-};
-
-export default ProductionProcess;
+  )
+}

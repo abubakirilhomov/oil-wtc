@@ -7,17 +7,19 @@ import ProductionSwiperL1 from "@/components/ProductionSwiperL1";
 import ProductionSwiperL2 from "@/components/ProductionSwiperL2";
 import ProductionSwiperL3 from "@/components/ProductionSwiperL3";
 import ProductionProcess from "@/components/ProductionProcess";
+import { FaTrain, FaFlask, FaWarehouse, FaTruck, FaCogs } from 'react-icons/fa';
+import { MdStorage, MdOutlineProductionQuantityLimits } from 'react-icons/md';
 
 const Production = () => {
   const [layouts] = useState([
     {
       layoutType: "L3",
-      description: "lorem clkeriuev erive rveivuebviervu eri ver bvercivber verivub erverv erveroibv ervier veorv rover veoverov erov erov ercer oc ec evi evieuvrhierhfierubvev erivuegver ve voeruvheirvhev ke veiuvhevnkcv wkvhierje beuhfkjer fvlerlijc",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       title: "Собственный завод в",
       highlightedWord: "Ворсино",
       buttonLabels: ["Компания", "Схема работы", "Мощности"],
       sectionIds: ["company-section", "workflow-section", "capacity-section"],
-      imageSrc: ["https://lemarc.ru/images/production-banner-new.png", "https://lemarc.ru/images/production-banner-new.png"],
+      imageSrc: "https://lemarc.ru/images/production-banner-new.png",
       titleFont: "Roboto, sans-serif",
       titleFontSize: "3.5rem",
       titleColor: "#000",
@@ -27,7 +29,72 @@ const Production = () => {
       buttonLabelsFont: "Roboto, sans-serif",
       buttonLabelsFontSize: "1rem",
       buttonLabelsColor: "#000",
+      statistics: [
+        { value: "1 million", label: "Worldwide customers" },
+        { value: "654K+", label: "Successful results" },
+        { value: "528K+", label: "Real customer reviews" },
+      ],
     },
+    {
+      layoutType: "Process",
+      cardData: [
+        {
+          icon: FaTrain,
+          title: "Доставка сырья",
+          details: ["Собственный железнодорожный путь от Киевского направления МЖД"]
+        },
+        {
+          icon: MdStorage,
+          title: "Прием и хранение компонентов",
+          details: [
+            "Базовые масла — 14 резервуаров",
+            "Присадки — 11 резервуаров",
+            "Упаковка — 800 паллетомест",
+            "Контроль качества"
+          ]
+        },
+        {
+          icon: FaCogs,
+          title: "Блендинг масел",
+          details: [
+            "3 автоматических блендера",
+            "Потоковый смеситель",
+            "Контроль качества"
+          ]
+        },
+        {
+          icon: FaFlask,
+          title: "Лаборатория",
+          details: ["Контроль качества на всех этапах производства"]
+        },
+        {
+          icon: MdOutlineProductionQuantityLimits,
+          title: "Хранение полуфабриката",
+          details: [
+            "16 резервуаров",
+            "Контроль качества"
+          ]
+        },
+        {
+          icon: FaWarehouse,
+          title: "6 линий розлива",
+          details: [
+            "1 л, 4 л, 20 л, 2×208 л, 1000 л",
+            "Контроль качества"
+          ]
+        },
+        {
+          icon: FaWarehouse,
+          title: "Хранение готовой продукции",
+          details: ["8000 паллетомест"]
+        },
+        {
+          icon: FaTruck,
+          title: "Доставка готовой продукции",
+          details: ["Доставка во все регионы России и страны СНГ"]
+        }
+      ]
+    }
   ]);
 
   const [swipers] = useState([
@@ -97,7 +164,15 @@ const Production = () => {
                 buttonLabelsFont={layout.buttonLabelsFont}
                 buttonLabelsFontSize={layout.buttonLabelsFontSize}
                 buttonLabelsColor={layout.buttonLabelsColor}
+                statistics={layout.statistics}
+                description={layout.description}
               />
+            );
+          case "Process":
+            return (
+              <div key={`layout-${index}`} id="workflow-section" className="py-16">
+              <ProductionProcess key={`layout-${index}`} cardData={layout.cardData} />
+              </div>
             );
           case "L3":
             return (
@@ -156,16 +231,6 @@ const Production = () => {
         }
       })}
 
-      <ProductionProcess/>
-
-      <div id="company-section" className="py-16">
-        <h2 className="text-2xl font-bold">Компания</h2>
-        <p>Content about the company will go here...</p>
-      </div>
-      <div id="workflow-section" className="py-16">
-        <h2 className="text-2xl font-bold">Схема работы</h2>
-        <p>Details about the workflow will be added here...</p>
-      </div>
       <div id="capacity-section" className="py-16">
         <h2 className="text-2xl font-bold">Мощности</h2>
         <p>Information about the production capacity will go here...</p>
