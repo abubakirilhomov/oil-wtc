@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import React, { useState } from "react";
 import ProductionShowcaseL1 from "@/components/ProductionShowcaseL1";
 import ProductionShowcaseL2 from "@/components/ProductionShowcaseL2";
@@ -6,11 +7,12 @@ import ProductionShowcaseL3 from "@/components/ProductionShowcaseL3";
 import ProductionSwiperL1 from "@/components/ProductionSwiperL1";
 import ProductionSwiperL2 from "@/components/ProductionSwiperL2";
 import ProductionSwiperL3 from "@/components/ProductionSwiperL3";
+import CompanyLayout from "@/components/CompanyLayout";
 
 const Production = () => {
   const [layouts] = useState([
     {
-      layoutType: "L1",
+      layoutType: "L3",
       title: "Собственный завод в",
       highlightedWord: "Ворсино",
       buttonLabels: ["Компания", "Схема работы", "Мощности"],
@@ -25,6 +27,31 @@ const Production = () => {
       buttonLabelsFont: "Roboto, sans-serif",
       buttonLabelsFontSize: "1rem",
       buttonLabelsColor: "#000",
+    },
+    {
+      title: "Завод Lemarc",
+      imageSrc: "https://lemarc.ru/images/factory-bg.png",
+      imageAlt: "Завод Lemarc Overview",
+      description:
+        "Современное высокотехнологичное производство мощностью до 75 000 тонн в год.",
+      details: [
+        {
+          subtitle: "Собственные ЖД пути",
+          text: "01",
+        },
+        {
+          subtitle: "Резервуарный парк 8 000 м³",
+          text: "02",
+        },
+        {
+          subtitle: "Склад готовой продукции на 8000 палето-мест",
+          text: "03",
+        },
+        {
+          subtitle: "Система одновременного дозирования мощностью 200 тонн в смену",
+          text: "04",
+        },
+      ],
     },
   ]);
 
@@ -121,7 +148,7 @@ const Production = () => {
             return null;
         }
       })}
-
+      <CompanyLayout sections={[layouts[1]]} backgroundImageSrc={[layouts[1].imageSrc]} />
       {swipers.map((swiper, index) => {
         switch (swiper.layoutType) {
           case "L1":
