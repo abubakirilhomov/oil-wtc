@@ -4,18 +4,16 @@ import React from 'react';
 
 const ProductionShowcaseL3 = ({ 
     title, 
+    description,  
     highlightedWord, 
     buttonLabels, 
     sectionIds,
-    imageSrc, 
+    imageSrc, // Updated to support multiple images
     titleFont, 
-    titleFontSize, 
     titleColor, 
     highlightedWordFont, 
-    highlightedWordFontSize, 
     highlightedWordGradient, 
     buttonLabelsFont, 
-    buttonLabelsFontSize, 
     buttonLabelsColor 
 }) => {
     const handleButtonClick = (sectionId) => {
@@ -23,42 +21,50 @@ const ProductionShowcaseL3 = ({
     };
 
     return (
-        <div className="flex flex-col container mx-auto items-center py-8 space-y-4">
-            <div className="text-center flex justify-center items-center flex-col w-full md:text-center">
-                <p 
-                    className="font-bold text-3xl sm:text-3xl md:text-4xl lg:text-6xl"
-                    style={{ fontFamily: titleFont, color: titleColor }}
-                >
-                    {title}{' '}
-                    <span 
-                        className={`bg-clip-text text-transparent ${highlightedWordGradient} text-3xl sm:text-3xl md:text-4xl lg:text-6xl`}
-                        style={{ fontFamily: highlightedWordFont }}
+        <div className="flex flex-col md:flex-row container mx-auto items-start py-8 space-y-4 md:space-y-0 md:space-x-8">
+            {/* Left Section: Text and Buttons */}
+            <div className="flex-1">
+                <div className="text-left space-y-4">
+                    <p 
+                        className="font-bold text-3xl sm:text-3xl md:text-4xl lg:text-5xl"
+                        style={{ fontFamily: titleFont, color: titleColor }}
                     >
-                        {highlightedWord}
-                    </span>
-                </p>
+                        {title}{' '}
+                        <span 
+                            className={`bg-clip-text text-transparent ${highlightedWordGradient} text-3xl sm:text-3xl md:text-4xl lg:text-5xl`}
+                            style={{ fontFamily: highlightedWordFont }}
+                        >
+                            {highlightedWord}
+                        </span>
+                    </p>
+                    <p className="mt-2 text-base sm:text-lg md:text-xl lg:text-2xl" style={{ fontFamily: titleFont, color: titleColor }}>
+                        {description}
+                    </p>
+                </div>
+                <div className="mt-6 flex flex-wrap gap-4">
+                    {buttonLabels.map((label, index) => (
+                        <button 
+                            key={index} 
+                            className="px-6 py-2 border border-black rounded-full hover:bg-gray-200 text-center text-sm sm:text-base md:text-lg"
+                            onClick={() => handleButtonClick(sectionIds[index])}
+                            style={{ fontFamily: buttonLabelsFont, color: buttonLabelsColor }}
+                        >
+                            {label}
+                        </button>
+                    ))}
+                </div>
             </div>
 
-            <div className="w-full flex justify-center">
-                <Image 
-                    src={imageSrc} 
-                    alt="Production Image" 
-                    height={400} 
-                    width={400} 
-                    className="rounded-lg shadow-lg object-contain"
-                />
-            </div>
-
-            <div className="mt-4 flex flex-col w-full sm:flex-row sm:flex-wrap justify-center gap-5">
-                {buttonLabels.map((label, index) => (
-                    <button 
-                        key={index} 
-                        className="w-full sm:w-auto px-4 py-2 border border-black rounded-full hover:bg-gray-100 text-center text-sm sm:text-base md:text-lg"
-                        onClick={() => handleButtonClick(sectionIds[index])}
-                        style={{ fontFamily: buttonLabelsFont, color: buttonLabelsColor }}
-                    >
-                        {label}
-                    </button>
+            <div className="flex-1 flex justify-center items-center space-x-4">
+                {imageSrc.map((src, idx) => (
+                    <Image 
+                        key={idx}
+                        src={src} 
+                        alt={`Production Image ${idx + 1}`} 
+                        height={400} 
+                        width={300} 
+                        className="rounded-lg shadow-lg object-cover"
+                    />
                 ))}
             </div>
         </div>

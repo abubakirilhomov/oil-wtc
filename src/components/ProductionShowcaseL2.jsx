@@ -30,7 +30,7 @@
         src={imageSrc} 
         alt="Production Image" 
         height={400} 
-        width={400} 
+        width={600} 
         className="rounded-lg shadow-lg object-contain"
         />
     </div>

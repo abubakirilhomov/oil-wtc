@@ -6,16 +6,18 @@ import ProductionShowcaseL3 from "@/components/ProductionShowcaseL3";
 import ProductionSwiperL1 from "@/components/ProductionSwiperL1";
 import ProductionSwiperL2 from "@/components/ProductionSwiperL2";
 import ProductionSwiperL3 from "@/components/ProductionSwiperL3";
+import ProductionProcess from "@/components/ProductionProcess";
 
 const Production = () => {
   const [layouts] = useState([
     {
-      layoutType: "L1",
+      layoutType: "L3",
+      description: "lorem clkeriuev erive rveivuebviervu eri ver bvercivber verivub erverv erveroibv ervier veorv rover veoverov erov erov ercer oc ec evi evieuvrhierhfierubvev erivuegver ve voeruvheirvhev ke veiuvhevnkcv wkvhierje beuhfkjer fvlerlijc",
       title: "Собственный завод в",
       highlightedWord: "Ворсино",
       buttonLabels: ["Компания", "Схема работы", "Мощности"],
       sectionIds: ["company-section", "workflow-section", "capacity-section"],
-      imageSrc: "https://lemarc.ru/images/production-banner-new.png",
+      imageSrc: ["https://lemarc.ru/images/production-banner-new.png", "https://lemarc.ru/images/production-banner-new.png"],
       titleFont: "Roboto, sans-serif",
       titleFontSize: "3.5rem",
       titleColor: "#000",
@@ -101,6 +103,7 @@ const Production = () => {
             return (
               <ProductionShowcaseL3
                 key={`layout-${index}`}
+                description={layout.description}
                 title={layout.title}
                 highlightedWord={layout.highlightedWord}
                 buttonLabels={layout.buttonLabels}
@@ -152,6 +155,8 @@ const Production = () => {
             return null;
         }
       })}
+
+      <ProductionProcess/>
 
       <div id="company-section" className="py-16">
         <h2 className="text-2xl font-bold">Компания</h2>
