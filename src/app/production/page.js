@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import React, { useState } from "react";
 import ProductionShowcaseL1 from "@/components/ProductionShowcaseL1";
 import ProductionShowcaseL2 from "@/components/ProductionShowcaseL2";
@@ -9,6 +10,7 @@ import ProductionSwiperL3 from "@/components/ProductionSwiperL3";
 import ProductionProcess from "@/components/ProductionProcess";
 import { FaTrain, FaFlask, FaWarehouse, FaTruck, FaCogs } from 'react-icons/fa';
 import { MdStorage, MdOutlineProductionQuantityLimits } from 'react-icons/md';
+import CompanyLayout from "@/components/CompanyLayout";
 
 const Production = () => {
   const [layouts] = useState([
@@ -94,7 +96,31 @@ const Production = () => {
           details: ["Доставка во все регионы России и страны СНГ"]
         }
       ]
-    }
+    },
+      {title: "Завод Lemarc",
+      imageSrc: "https://lemarc.ru/images/factory-bg.png",
+      imageAlt: "Завод Lemarc Overview",
+      description:
+        "Современное высокотехнологичное производство мощностью до 75 000 тонн в год.",
+      details: [
+        {
+          subtitle: "Собственные ЖД пути",
+          text: "01",
+        },
+        {
+          subtitle: "Резервуарный парк 8 000 м³",
+          text: "02",
+        },
+        {
+          subtitle: "Склад готовой продукции на 8000 палето-мест",
+          text: "03",
+        },
+        {
+          subtitle: "Система одновременного дозирования мощностью 200 тонн в смену",
+          text: "04",
+        },
+      ],
+    },
   ]);
 
   const [swipers] = useState([
@@ -123,7 +149,7 @@ const Production = () => {
   ]);
 
   return (
-    <div className="container w-full max-w-[90%] mx-auto flex flex-col gap-14">
+    <div className="container w-full  mx-auto flex flex-col gap-14">
       {layouts.map((layout, index) => {
         switch (layout.layoutType) {
           case "L1":
@@ -199,7 +225,7 @@ const Production = () => {
             return null;
         }
       })}
-
+      <CompanyLayout sections={[layouts[2]]} backgroundImageSrc={[layouts[2].imageSrc]} />
       {swipers.map((swiper, index) => {
         switch (swiper.layoutType) {
           case "L1":

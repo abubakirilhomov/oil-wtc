@@ -17,10 +17,16 @@ const iconComponents = {
 
 export default function ProductionProcess({ cardData = [] }) {
   return (
-    <div className="relative mx-auto py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br rounded-lg from-gray-50 to-gray-100">
-      <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">Производственный Процесс</h2>
+    <div className=" mx-auto py-16"
+    style={{
+    backgroundImage: `url(/pattern/fon3.jpg)`,
+    backgroundSize: "cover", // Ensures the image covers the entire div // Ensures the image covers the entire div
+    backgroundRepeat: "no-repeat", // Prevents tiling
+    backgroundPosition: "center", // Corrected background image syntax
+    }}>
+      <h2 className="text-4xl font-bold text-center text-white   mb-16">Производственный Процесс</h2>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 max-w-[90%] mx-auto lg:grid-cols-3 gap-8">
         {cardData.map((card, index) => {
           const IconComponent = iconComponents[card.icon] || FaCogs
           return (
