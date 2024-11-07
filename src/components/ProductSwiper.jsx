@@ -84,7 +84,7 @@ const ProductSwiper = () => {
               key={product._id} 
               className={`flex flex-col items-center relative group ${index !== 0 ? 'border-l border-black' : ''}`}
             >
-              <Link href="/products">
+              <Link href="/catalog">
                 <div className="relative">
                   <img
                     src={`http://localhost:9000/${product.image.main_images}`}
