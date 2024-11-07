@@ -32,9 +32,9 @@ const ProductionSwiperL2 = ({ images, title }) => {
   };
 
   return (
-    <div className="w-full h-auto md:h-screen justify-center flex flex-col md:flex-row bg-white">
+    <div className="w-full h-auto md:h-screen justify-center flex flex-col md:flex-row bg-white max-w-[90%] mx-auto">
       {/* Right side for titles */}
-      <div className="w-full md:w-1/2 p-4 md:p-8 overflow-y-auto bg-white">
+      <div className="w-full md:w-1/2 py-4 md:p-8 overflow-y-auto bg-white">
         <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6 text-gray-800">
           {title}
         </h2>
@@ -43,7 +43,7 @@ const ProductionSwiperL2 = ({ images, title }) => {
           {images.map((item, index) => (
             <li
               key={index}
-              className={`border-b cursor-pointer transition-all hover:bg-gray-100 px-2 py-2 md:py-4 flex items-center justify-between ${
+              className={`border-b cursor-pointer transition-all hover:bg-gray-100 px-2  py-2 md:py-4 flex items-center justify-between ${
                 activeIndex === index ? 'font-bold text-blue-600' : ''
               }`}
               onClick={() => handleTitleClick(index)} // Navigate to the clicked image

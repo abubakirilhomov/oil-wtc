@@ -39,6 +39,7 @@ const Production = () => {
     },
     {
       layoutType: "Process",
+      title: "Production process",
       cardData: [
         {
           icon: FaTrain,
@@ -125,7 +126,7 @@ const Production = () => {
 
   const [swipers] = useState([
     {
-      layoutType: "L1",
+      layoutType: "L2",
       title: "Топ Лубрикантс",
       images: [
         {
@@ -149,7 +150,7 @@ const Production = () => {
   ]);
 
   return (
-    <div className="container w-full  mx-auto flex flex-col gap-14">
+    <div className="container w-full  mx-auto flex flex-col gap-14 py-16">
       {layouts.map((layout, index) => {
         switch (layout.layoutType) {
           case "L1":
@@ -197,7 +198,7 @@ const Production = () => {
           case "Process":
             return (
               <div key={`layout-${index}`} id="workflow-section" className="py-16">
-              <ProductionProcess key={`layout-${index}`} cardData={layout.cardData} />
+              <ProductionProcess key={`layout-${index}`} cardData={layout.cardData} title={layout.title} />
               </div>
             );
           case "L3":

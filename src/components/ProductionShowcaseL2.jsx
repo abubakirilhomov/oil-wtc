@@ -23,7 +23,7 @@ const ProductionShowcaseL2 = ({
     };
 
     return (
-        <div className="flex flex-col md:flex-row md:justify-between container mx-auto items-center md:items-start py-8 space-y-4 md:space-y-0">
+        <div className="flex flex-col md:flex-row md:justify-between container mx-auto items-center md:items-start py-8 space-y-4 md:space-y-0 max-w-[90%]">
             <div className="text-center flex justify-start items-start flex-col w-full md:w-1/2 md:text-left">
                 <p 
                     className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6" 

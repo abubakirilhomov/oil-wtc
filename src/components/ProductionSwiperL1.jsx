@@ -34,7 +34,7 @@ const ProductionSwiperL1 = ({ images, title }) => {
   };
 
   return (
-    <div className="w-full h-auto md:h-screen flex flex-col md:flex-row bg-white">
+    <div className="w-full h-auto md:h-screen flex flex-col md:flex-row bg-white max-w-[90%] mx-auto">
       {/* Left side for Swiper */}
       <div className="w-full md:w-1/2 relative">
         <Swiper

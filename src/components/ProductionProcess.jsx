@@ -15,20 +15,20 @@ const iconComponents = {
   MdOutlineProductionQuantityLimits,
 }
 
-export default function ProductionProcess({ cardData = [] }) {
+export default function ProductionProcess({ cardData = [], title }) {
   return (
     <div className=" mx-auto py-16"
     style={{
-    backgroundImage: `url(/pattern/fon3.jpg)`,
-    backgroundSize: "cover", // Ensures the image covers the entire div // Ensures the image covers the entire div
-    backgroundRepeat: "no-repeat", // Prevents tiling
-    backgroundPosition: "center", // Corrected background image syntax
+      backgroundImage: `url(/pattern/fon3.jpg)`,
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
     }}>
-      <h2 className="text-4xl font-bold text-center text-white   mb-16">Производственный Процесс</h2>
+      <h2 className="text-4xl font-bold text-center text-white mb-16">{title}</h2>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 max-w-[90%] mx-auto lg:grid-cols-3 gap-8">
         {cardData.map((card, index) => {
-          const IconComponent = iconComponents[card.icon] || FaCogs
+          const IconComponent = iconComponents[card.icon] || FaCogs;
           return (
             <motion.div
               key={index}
@@ -38,7 +38,7 @@ export default function ProductionProcess({ cardData = [] }) {
               className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 overflow-hidden relative"
             >
               <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 opacity-10 rounded-bl-full"></div>
-              <card.icon   className="text-5xl mb-6 text-yellow-500" />
+              <card.icon className="text-5xl mb-6 text-yellow-500" />
               <h3 className="text-2xl font-semibold mb-4 text-gray-800">{card.title}</h3>
               <ul className="list-none text-gray-600 text-sm leading-7 space-y-2">
                 {card.details.map((detail, i) => (
@@ -58,9 +58,9 @@ export default function ProductionProcess({ cardData = [] }) {
                 ))}
               </ul>
             </motion.div>
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }
