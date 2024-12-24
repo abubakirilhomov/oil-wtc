@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import ProductionShowcaseL1 from "@/components/ProductionShowcaseL1";
@@ -98,30 +98,30 @@ const Production = () => {
         }
       ]
     },
-      {title: "Завод Lemarc",
-      imageSrc: "https://lemarc.ru/images/factory-bg.png",
-      imageAlt: "Завод Lemarc Overview",
-      description:
-        "Современное высокотехнологичное производство мощностью до 75 000 тонн в год.",
-      details: [
-        {
-          subtitle: "Собственные ЖД пути",
-          text: "01",
-        },
-        {
-          subtitle: "Резервуарный парк 8 000 м³",
-          text: "02",
-        },
-        {
-          subtitle: "Склад готовой продукции на 8000 палето-мест",
-          text: "03",
-        },
-        {
-          subtitle: "Система одновременного дозирования мощностью 200 тонн в смену",
-          text: "04",
-        },
-      ],
-    },
+      {
+        title: "Наши ценности  ",
+        backgroundColor: "#edeae1",
+        description:
+          "Обеспечить непрерывный доступ к актуальным технологиям в смазочных материалах",
+        details: [
+          {
+            subtitle: "Безопасность",
+            text: "01",
+          },
+          {
+            subtitle: "Экспертность и профессионализм",
+            text: "02",
+          },
+          {
+            subtitle: "Высокий уровень стандартов",
+            text: "03",
+          },
+          {
+            subtitle: "Ответственность",
+            text: "04",
+          },
+        ],
+      },
   ]);
 
   const [swipers] = useState([
@@ -226,7 +226,7 @@ const Production = () => {
             return null;
         }
       })}
-      <CompanyLayout sections={[layouts[2]]} backgroundImageSrc={[layouts[2].imageSrc]} />
+      <CompanyLayout sections={[layouts[2]]} backgroundColor={layouts[2].backgroundColor} />
       {swipers.map((swiper, index) => {
         switch (swiper.layoutType) {
           case "L1":
