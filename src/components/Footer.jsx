@@ -9,7 +9,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white py-8 w-full">
+    <footer className="bg-gray-900 text-white py-8 w-full z-50 relative">
+      {/* The z-50 ensures that the footer is displayed above other elements with lower z-index */}
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-[90%] sm:px-6 px-4 lg:px-0">
         <div>
           <Image src="/wtc-logo.png" alt="Lemarc Logo" width={100} height={100} />

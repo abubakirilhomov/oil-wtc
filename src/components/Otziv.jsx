@@ -9,7 +9,7 @@ export default function Otziv() {
     fullName: '',
     phone: '',
     email: '',
-    topic: '',
+    application_type: '',
     message: '',
     consentToDataProcessing: false,
     consentToPromotionalEmails: false,
@@ -50,7 +50,6 @@ export default function Otziv() {
     })
       .then(response => {
         if (!response.ok) {
-          // Throwing error with response status for better clarity
           throw new Error(`Network response was not OK, status: ${response.status}`);
         }
         return response.json();
@@ -95,7 +94,7 @@ export default function Otziv() {
 
           <div className="relative">
             <select
-              name="topic"
+              name="application_type"
               value={formData.application_type}
               onChange={handleInputChange}
               className="w-full bg-transparent border-b border-white pb-2 focus:outline-none appearance-none"

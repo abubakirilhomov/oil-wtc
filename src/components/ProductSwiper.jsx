@@ -17,8 +17,12 @@ const ProductSwiper = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:9000/api/v1/products').then(res => res.json());
-      setProducts(response);
+      const response = await fetch('http://localhost:9000/api/v1/products');
+      if (!response.ok) {
+        throw new Error(`Network response was not OK, status: ${response.status}`);
+      }
+      const data = await response.json();
+      setProducts(data);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -31,6 +35,7 @@ const ProductSwiper = () => {
   }, []);
 
   const truncateText = (text, limit) => {
+    if (!text || typeof text !== 'string') return '';
     return text.length > limit ? text.substring(0, limit) + '...' : text;
   };
 
@@ -44,19 +49,10 @@ const ProductSwiper = () => {
           потребностей в обслуживании различного оборудования и техники.
         </p>
       </div>
-      
+
       {loading ? (
-        <div className="flex justify-center items-center h-64 gap-4">
-          <div className="loading loading-spinner loading-lg text-gray-500"></div>
-          <div className="grid grid-cols-4 gap-6 mt-6">
-            {Array.from({ length: 4 }).map((_, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="w-40 h-64 bg-gray-300 rounded-lg animate-pulse"></div>
-                <div className="w-32 h-4 bg-gray-300 mt-4 rounded animate-pulse"></div>
-                <div className="w-24 h-4 bg-gray-300 mt-2 rounded animate-pulse"></div>
-              </div>
-            ))}
-          </div>
+        <div className="flex justify-center items-center h-64">
+          <span className="loading loading-spinner loading-lg text-gray-500"></span>
         </div>
       ) : (
         <Swiper
@@ -80,11 +76,13 @@ const ProductSwiper = () => {
           className="px-10"
         >
           {products.map((product, index) => (
-            <SwiperSlide 
-              key={product._id} 
-              className={`flex flex-col items-center relative group ${index !== 0 ? 'border-l border-black' : ''}`}
+            <SwiperSlide
+              key={product._id}
+              className={`flex flex-col items-center relative group ${
+                index !== 0 ? 'border-l border-black' : ''
+              }`}
             >
-              <Link href="/products">
+              <Link href="/catalog">
                 <div className="relative">
                   <img
                     src={`http://localhost:9000/${product.image.main_images}`}
@@ -98,7 +96,8 @@ const ProductSwiper = () => {
                         {truncateText(product.description, 20)}
                       </p>
                       <p className="text-lg">
-                        Price: ${product.price} {product.discount_price && `(Discount: $${product.discount_price})`}
+                        Price: ${product.price}{' '}
+                        {product.discount_price && `(Discount: $${product.discount_price})`}
                       </p>
                     </div>
                   </div>

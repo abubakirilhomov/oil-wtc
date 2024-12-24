@@ -1,16 +1,14 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { use } from "react"; // Import the `use` function from React
+import { use } from "react"; 
 
 const ProductPage = ({ params }) => {
   const [product, setProduct] = useState(null);
 
-  // Unwrap the `params` Promise
   const { id } = use(params);
 
   useEffect(() => {
-    // Fetch product data only if id exists
     if (id) {
       fetch(`http://localhost:9000/api/v1/products/${id}`)
         .then((res) => {
@@ -37,14 +35,7 @@ const ProductPage = ({ params }) => {
       <p className="text-lg mb-4">Category: {product.category}</p>
       <p className="text-lg font-bold mb-4">Price: {product.price} UZS</p>
       <p className="text-lg mb-4">Description: {product.description}</p>
-      <a
-        href={`http://localhost:9000/${product.product_info_pdf}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-blue-500 underline"
-      >
-        Download Product Info
-      </a>
+      
     </div>
   );
 };

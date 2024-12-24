@@ -19,10 +19,8 @@ const Navbar = () => {
     },{
       label: 'Новости',
       href: '/news',
-    },{
-      label: 'Контакты',
-      href: '/contacts',
-    },{
+    },
+    {
       label: 'Контакты',
       href: '/contacts',
     },{
@@ -35,7 +33,7 @@ const Navbar = () => {
     router.push(href)
   }
   return (
-    <nav className='relative w-full bg-white shadow-md'>
+    <nav className=' top-0 z-50 w-full bg-white shadow-md fixed '>
       <div className='flex items-center justify-between px-4 py-4 mx-auto sm:px-6 lg:px-0 max-w-[90%]'>
         <div className='flex items-center flex-shrink-0'>
           <Link href="/" onClick={() => setIsMenuOpen(false)}>
@@ -56,14 +54,14 @@ const Navbar = () => {
           </ul>
         </div>
         <div className='hidden lg:block'>
-          <button className='px-6 py-2 text-base font-medium text-[#263699] bg-gradient-to-r from-[#FABA49] to-[#F9B22B] rounded-full hover:from-[#F9B22B] hover:to-[#FABA49] focus:outline-none btn'>
+          <button className='px-4 py-2 text-base text-white font-medium bg-gradient-to-r from-[#8e2de2] to-[#ef473a] rounded-full focus:outline-none btn'>
             Buy now
           </button>
         </div>
         <div className='flex lg:hidden'>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className='inline-flex items-center justify-center  text-gray-400 rounded-md hover:text-gray-500 focus:outline-none'
+            className='inline-flex items-center justify-center text-gray-400 rounded-md hover:text-gray-500 focus:outline-none'
             aria-expanded='false'
           >
             <span className='sr-only outline-none'>Open main menu</span>

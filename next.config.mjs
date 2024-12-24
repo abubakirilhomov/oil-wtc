@@ -3,7 +3,7 @@ const nextConfig = {
     images: {
         domains: ['liquimoly.ru', ],
         domains: ['w7.pngwing.com'],
-        domains: ["lemarc.ru"],
+        domains: ["lemarc.ru", 'localhost'],
       },
 };
 
