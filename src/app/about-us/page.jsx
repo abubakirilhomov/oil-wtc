@@ -7,9 +7,6 @@ import ProductionShowcaseL3 from "@/components/ProductionShowcaseL3";
 import ProductionSwiperL1 from "@/components/ProductionSwiperL1";
 import ProductionSwiperL2 from "@/components/ProductionSwiperL2";
 import ProductionSwiperL3 from "@/components/ProductionSwiperL3";
-import ProductionProcess from "@/components/ProductionProcess";
-import { FaTrain, FaFlask, FaWarehouse, FaTruck, FaCogs } from 'react-icons/fa';
-import { MdStorage, MdOutlineProductionQuantityLimits } from 'react-icons/md';
 import CompanyLayout from "@/components/CompanyLayout";
 
 const Production = () => {
@@ -38,90 +35,29 @@ const Production = () => {
       ],
     },
     {
-      layoutType: "Process",
-      title: "Production process",
-      cardData: [
+      title: "Наши ценности  ",
+      backgroundColor: "#edeae1",
+      description:
+        "Обеспечить непрерывный доступ к актуальным технологиям в смазочных материалах",
+      details: [
         {
-          icon: FaTrain,
-          title: "Доставка сырья",
-          details: ["Собственный железнодорожный путь от Киевского направления МЖД"]
+          subtitle: "Безопасность",
+          text: "01",
         },
         {
-          icon: MdStorage,
-          title: "Прием и хранение компонентов",
-          details: [
-            "Базовые масла — 14 резервуаров",
-            "Присадки — 11 резервуаров",
-            "Упаковка — 800 паллетомест",
-            "Контроль качества"
-          ]
+          subtitle: "Экспертность и профессионализм",
+          text: "02",
         },
         {
-          icon: FaCogs,
-          title: "Блендинг масел",
-          details: [
-            "3 автоматических блендера",
-            "Потоковый смеситель",
-            "Контроль качества"
-          ]
+          subtitle: "Высокий уровень стандартов",
+          text: "03",
         },
         {
-          icon: FaFlask,
-          title: "Лаборатория",
-          details: ["Контроль качества на всех этапах производства"]
+          subtitle: "Ответственность",
+          text: "04",
         },
-        {
-          icon: MdOutlineProductionQuantityLimits,
-          title: "Хранение полуфабриката",
-          details: [
-            "16 резервуаров",
-            "Контроль качества"
-          ]
-        },
-        {
-          icon: FaWarehouse,
-          title: "6 линий розлива",
-          details: [
-            "1 л, 4 л, 20 л, 2×208 л, 1000 л",
-            "Контроль качества"
-          ]
-        },
-        {
-          icon: FaWarehouse,
-          title: "Хранение готовой продукции",
-          details: ["8000 паллетомест"]
-        },
-        {
-          icon: FaTruck,
-          title: "Доставка готовой продукции",
-          details: ["Доставка во все регионы России и страны СНГ"]
-        }
-      ]
+      ],
     },
-      {
-        title: "Наши ценности  ",
-        backgroundColor: "#edeae1",
-        description:
-          "Обеспечить непрерывный доступ к актуальным технологиям в смазочных материалах",
-        details: [
-          {
-            subtitle: "Безопасность",
-            text: "01",
-          },
-          {
-            subtitle: "Экспертность и профессионализм",
-            text: "02",
-          },
-          {
-            subtitle: "Высокий уровень стандартов",
-            text: "03",
-          },
-          {
-            subtitle: "Ответственность",
-            text: "04",
-          },
-        ],
-      },
   ]);
 
   const [swipers] = useState([
@@ -150,7 +86,7 @@ const Production = () => {
   ]);
 
   return (
-    <div className="container w-full  mx-auto flex flex-col gap-14 py-16">
+    <div className="container w-full mx-auto flex flex-col gap-14 py-16">
       {layouts.map((layout, index) => {
         switch (layout.layoutType) {
           case "L1":
@@ -195,12 +131,6 @@ const Production = () => {
                 description={layout.description}
               />
             );
-          case "Process":
-            return (
-              <div key={`layout-${index}`} id="workflow-section" className="py-16 ">
-              <ProductionProcess key={`layout-${index}`} cardData={layout.cardData} title={layout.title} />
-              </div>
-            );
           case "L3":
             return (
               <ProductionShowcaseL3
@@ -226,7 +156,7 @@ const Production = () => {
             return null;
         }
       })}
-      <CompanyLayout sections={[layouts[2]]} backgroundColor={layouts[2].backgroundColor} />
+      <CompanyLayout sections={[layouts[1]]} backgroundColor={layouts[1].backgroundColor} />
       {swipers.map((swiper, index) => {
         switch (swiper.layoutType) {
           case "L1":
@@ -257,7 +187,6 @@ const Production = () => {
             return null;
         }
       })}
-
       <div id="capacity-section" className="py-16">
         <h2 className="text-2xl font-bold">Мощности</h2>
         <p>Information about the production capacity will go here...</p>
