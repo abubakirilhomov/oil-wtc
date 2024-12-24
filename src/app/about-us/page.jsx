@@ -11,8 +11,9 @@ import ProductionProcess from "@/components/ProductionProcess";
 import { FaTrain, FaFlask, FaWarehouse, FaTruck, FaCogs } from 'react-icons/fa';
 import { MdStorage, MdOutlineProductionQuantityLimits } from 'react-icons/md';
 import CompanyLayout from "@/components/CompanyLayout";
+import AboutUs2 from "@/components/AboutUs2";
 
-const Production = () => {
+const AboutUs = () => {
   const [layouts] = useState([
     {
       layoutType: "L3",
@@ -37,6 +38,12 @@ const Production = () => {
         { value: "528K+", label: "Real customer reviews" },
       ],
     },
+    {
+      layoutType: "L22",
+      description: "WTC — новый бренд моторных, трансмиссионных и индустриальных масел для российского рынка и ближайшего зарубежья.",
+      title: "Масла производятся на мощностях современного, высокотехнологичного завода смазочных материалов в Калужской области, ранее принадлежавшего французской компании.",
+      img: "https://lemarc.ru/images/about-img.png"
+    }, 
     {
       layoutType: "Process",
       title: "Production process",
@@ -173,6 +180,15 @@ const Production = () => {
                 buttonLabelsColor={layout.buttonLabelsColor}
               />
             );
+            case "L22":
+              return (
+                <AboutUs2
+                  key={`layout-${index}`}
+                  title={layout.title}
+                  description={layout.description}
+                  img={layout.img}
+                />
+              );            
           case "L2":
             return (
               <ProductionShowcaseL2
@@ -195,12 +211,7 @@ const Production = () => {
                 description={layout.description}
               />
             );
-          case "Process":
-            return (
-              <div key={`layout-${index}`} id="workflow-section" className="py-16 ">
-              <ProductionProcess key={`layout-${index}`} cardData={layout.cardData} title={layout.title} />
-              </div>
-            );
+            
           case "L3":
             return (
               <ProductionShowcaseL3
@@ -226,7 +237,6 @@ const Production = () => {
             return null;
         }
       })}
-      <CompanyLayout sections={[layouts[2]]} backgroundImageSrc={[layouts[2].imageSrc]} />
       {swipers.map((swiper, index) => {
         switch (swiper.layoutType) {
           case "L1":
@@ -266,4 +276,4 @@ const Production = () => {
   );
 };
 
-export default Production;
+export default AboutUs;
