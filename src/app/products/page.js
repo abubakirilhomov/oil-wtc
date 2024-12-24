@@ -46,9 +46,9 @@ const Products = () => {
   };
 
   return (
-    <div className="flex flex-col items-start min-h-screen">
+    <div className="flex flex-col min-h-screen w-full ">
       <div className="flex w-full max-w-7xl mx-auto mt-8">
-        <aside className="w-1/4 p-4 mr-8">
+        <aside className="w-1/4 p-4 mr-8 mt-12">
           <div className="space-y-4">
             <div>
               <div
@@ -79,7 +79,7 @@ const Products = () => {
           </div>
         </aside>
 
-        <main className="w-3/4 p-4">
+        <main className="w-3/4 p-4 mt-11">
           <h2 className="text-4xl font-bold mb-6">
             Для грузовых и тяжелых коммерческих автомобилей
           </h2>
