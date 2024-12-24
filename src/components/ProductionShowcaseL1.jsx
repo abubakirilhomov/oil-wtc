@@ -24,7 +24,7 @@
 
     return (
         <div className="flex flex-col md:flex-row md:justify-between container mx-auto items-center md:items-start py-8 space-y-4 md:space-y-0">
-    <div className="text-center flex justify-center items-center flex-col w-full md:w-1/2 md:text-left"> 
+    <div className="text-center flex justify-center items-center flex-col w-full md:w-1/2 md:text-left"> {/* Changed w-1/2 to w-full on mobile */}
         <p 
         className="font-bold lg:mb-14 text-center md:text-left text-3xl sm:text-3xl md:text-4xl lg:text-6xl" 
         style={{ fontFamily: titleFont, color: titleColor }}

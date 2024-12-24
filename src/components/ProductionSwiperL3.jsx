@@ -32,27 +32,12 @@ const ProductionSwiperL3 = ({ images, title }) => {
   };
 
   return (
-    <div className="w-full h-auto md:h-screen flex flex-col bg-white">
+    <div className="w-full h-auto md:h-screen flex flex-col bg-white max-w-[90%] mx-auto">
       {/* Top section for titles */}
       <div className="w-full bg-white">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-gray-800 text-center">
           {title}
         </h2>
-        <ul className="flex flex-row justify-between overflow-x-auto mb-6">
-          {images.map((item, index) => (
-            <li
-              key={index}
-              className={`border rounded-full cursor-pointer transition-all hover:bg-gray-100 px-5 py-2 flex items-center justify-center ${
-                activeIndex === index ? 'font-bold text-blue-600 border-blue-400' : ''
-              }`}
-              onClick={() => handleTitleClick(index)}
-            >
-              <span className="text-sm md:text-lg text-gray-700 font-medium">
-                {item.title}
-              </span>
-            </li>
-          ))}
-        </ul>
       </div>
   
       {/* Bottom section for Swiper */}
@@ -74,6 +59,11 @@ const ProductionSwiperL3 = ({ images, title }) => {
                 alt={`Slide ${index + 1}`}
                 className="w-full h-full object-cover rounded-lg"
               />
+              {isMobile && (
+                <div className="absolute bottom-2 left-0 w-full text-center bg-opacity-60 bg-black text-white py-2">
+                  {item.title}
+                </div>
+              )}
             </SwiperSlide>
           ))}
         </Swiper>
@@ -97,7 +87,6 @@ const ProductionSwiperL3 = ({ images, title }) => {
       `}</style>
     </div>
   );
-  
 };
 
 export default ProductionSwiperL3;
