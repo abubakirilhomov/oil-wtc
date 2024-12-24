@@ -17,8 +17,8 @@ const ProductSwiper = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:9000/api/v1/products').then(res => res.json());
-      setProducts(response);
+      const response = await axios.get('http://localhost:9000/api/v1/products');
+      setProducts(response.data); // axios automatically parses JSON
       setLoading(false);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -31,8 +31,10 @@ const ProductSwiper = () => {
   }, []);
 
   const truncateText = (text, limit) => {
-    if (!text) return ''; // Handle undefined or null text
-    return text.length > limit ? `${text.substring(0, limit)}...` : text;
+    if (typeof text !== 'string') {
+      return 'No description available'; // Fallback for non-string or undefined `text`
+    }
+    return text.length > limit ? text.substring(0, limit) + '...' : text;
   };
 
   return (
@@ -89,17 +91,17 @@ const ProductSwiper = () => {
                 <div className="relative">
                   <img
                     src={`http://localhost:9000/${product.image.main_images}`}
-                    alt={product.name || 'Product Image'}
+                    alt={product.name}
                     className="w-40 h-64 object-cover rounded-lg group-hover:opacity-50 transition-opacity duration-300"
                   />
                   <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="text-center text-xs p-4">
-                      <h3 className="text-2xl font-bold mb-2 text-black">{product.name}</h3>
+                      <h3 className="text-2xl font-bold mb-2 text-black">{product.name || 'No Name'}</h3>
                       <p className="text-md text-gray-700 mb-1">
                         {truncateText(product.description, 20)}
                       </p>
                       <p className="text-lg">
-                        Price: ${product.price} {product.discount_price && `(Discount: $${product.discount_price})`}
+                        Price: ${product.price || 'N/A'} {product.discount_price && `(Discount: $${product.discount_price})`}
                       </p>
                     </div>
                   </div>
