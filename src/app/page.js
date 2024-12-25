@@ -13,6 +13,7 @@ import Otziv from '@/components/Otziv';
 import Partner from '@/components/Partner';
 import { Factory } from 'lucide-react';
 import FactoryInfo from '@/components/FactoryInfo';
+import HomeSwiper from '@/components/HomeSwiper';
 
 export default function HomePage() {
   return (
@@ -26,6 +27,10 @@ export default function HomePage() {
         <section>
           <ProductSwiper />
           <section>
+            <section className='pt-10 pb-10'>
+              <HomeSwiper/>
+            </section>
+
             <FactoryInfo/>
           </section>
           <section>

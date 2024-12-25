@@ -6,7 +6,7 @@ const CompanyLayout = ({ sections }) => {
     <div
       className="container mx-auto my-10 w-full h-[90vh]"
       style={{
-        backgroundColor: "#edeae1", // Установлен фон цвета #edeae1
+        backgroundColor: "#edeae1", 
       }}
     >
       <div className="flex w-full max-w-[90%] mx-auto">

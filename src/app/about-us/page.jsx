@@ -152,9 +152,13 @@ const Production = () => {
                 buttonLabelsColor={layout.buttonLabelsColor}
               />
             );
+          
+    
           default:
             return null;
         }
+
+      
       })}
       <CompanyLayout sections={[layouts[1]]} backgroundColor={layouts[1].backgroundColor} />
       {swipers.map((swiper, index) => {

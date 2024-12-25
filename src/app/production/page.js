@@ -254,8 +254,10 @@ const Production = () => {
               />
             );
           default:
+            
             return null;
         }
+        
       })}
 
       <div id="capacity-section" className="py-16">
