@@ -34,7 +34,7 @@ const Navbar = () => {
     router.push(href)
   }
   return (
-    <nav className='w-full bg-white shadow-md fixed z-50'>
+    <nav className='w-full bg-white shadow-md fixed z-50  top-0'>
       <div className='flex items-center justify-between px-4 py-4 mx-auto sm:px-6 lg:px-0 max-w-[90%]'>
         <div className='flex items-center flex-shrink-0'>
           <Link href="/" onClick={() => setIsMenuOpen(false)}>
