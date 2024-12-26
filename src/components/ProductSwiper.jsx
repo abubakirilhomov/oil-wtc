@@ -45,14 +45,19 @@ const ProductSwiper = () => {
 
   return (
     <div className="p-14 bg-[#f8f6f1]">
-      <div className="mb-10">
-        <h1 className="text-5xl font-bold text-black">Линейка Масел</h1>
-        <h2 className="text-4xl text-red-600 font-bold">LEMARC</h2>
-        <p className="text-lg mt-4 max-w-md">
-          Высокотехнологичные смазочные материалы Lemarc закрывают широкий спектр
-          потребностей в обслуживании различного оборудования и техники.
-        </p>
-      </div>
+      <div className="text-left">
+  <h1 className="text-7xl font-bold text-black leading-tight">
+    Линейка Масел
+  </h1>
+  <h2 className="text-5xl text-red-600 font-extrabold mt-4">
+    WTC
+  </h2>
+  <p className="text-3xl mt-6 max-w-3xl text-gray-700">
+    Высокотехнологичные смазочные материалы Lemarc закрывают широкий спектр
+    потребностей в обслуживании различного оборудования и техники.
+  </p>
+</div>
+
       
       {loading ? (
         <div className="flex justify-center items-center h-64 gap-4">
