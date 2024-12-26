@@ -10,6 +10,9 @@ import Banner from '@/components/Banner';
 import Dvigitel from '@/components/Dvgitel';
 import ProductSwiper from '@/components/ProductSwiper';
 import Otziv from '@/components/Otziv';
+import Partner from '@/components/Partner';
+import { Factory } from 'lucide-react';
+import HomeSwiper from '@/components/HomeSwiper';
 
 export default function HomePage() {
   return (
@@ -22,6 +25,15 @@ export default function HomePage() {
         </section>
         <section>
           <ProductSwiper />
+          <section>
+            <section className='pt-10 pb-10'>
+              <HomeSwiper/>
+            </section>
+
+          </section>
+          <section>
+            <Partner/>
+          </section>
         </section>
         <section>
             <Otziv/>

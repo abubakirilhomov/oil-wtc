@@ -17,8 +17,8 @@ const ProductSwiper = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:9000/api/v1/products');
-      setProducts(response.data); // axios avtomatik JSON parse qiladi
+      const response = await axios.get('https://bakend-wtc-4.onrender.com/api/v1/products');
+      setProducts(response.data); // axios automatically parses JSON
       setLoading(false);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -30,15 +30,9 @@ const ProductSwiper = () => {
     fetchProducts();
   }, []);
 
-  // Konsolga mahsulotlarni chiqarish
-  useEffect(() => {
-    console.log('Fetched products:', products);
-  }, [products]);
-
-  const truncateText = (text = '', limit) => {
+  const truncateText = (text, limit) => {
     if (typeof text !== 'string') {
-      console.error('truncateText: text is not a string:', text);
-      return '';
+      return 'No description available'; // Fallback for non-string or undefined `text`
     }
     return text.length > limit ? text.substring(0, limit) + '...' : text;
   };
@@ -53,7 +47,7 @@ const ProductSwiper = () => {
           потребностей в обслуживании различного оборудования и техники.
         </p>
       </div>
-      
+
       {loading ? (
         <div className="flex justify-center items-center h-64 gap-4">
           <div className="loading loading-spinner loading-lg text-gray-500"></div>
@@ -88,16 +82,16 @@ const ProductSwiper = () => {
           }}
           className="px-10"
         >
-          {products.map((product, index) => (
+          {products.map((product) => (
             <SwiperSlide 
               key={product._id} 
-              className={`flex flex-col items-center relative group ${index !== 0 ? 'border-l border-black' : ''}`}
+              className="flex flex-col items-center relative group border-l border-black"
             >
               <Link href="/products">
                 <div className="relative">
                   <img
-                    src={`http://localhost:9000/${product.image?.main_images || 'default-image.jpg'}`}
-                    alt={product.name || 'Product Image'}
+                    src={`https://bakend-wtc-4.onrender.com/${product.image.main_images}`}
+                    alt={product.name}
                     className="w-40 h-64 object-cover rounded-lg group-hover:opacity-50 transition-opacity duration-300"
                   />
                   <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

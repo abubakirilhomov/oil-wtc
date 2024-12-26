@@ -159,8 +159,10 @@ const Production = () => {
               </>
             );
           default:
+            
             return null;
         }
+        
       })}
 
       {swipers.map((swiper, index) => {

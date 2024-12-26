@@ -9,13 +9,13 @@ const NewsPage = () => {
 
   useEffect(() => {
     // Fetch all news
-    fetch('http://localhost:9000/api/v1/news')
+    fetch('https://bakend-wtc-4.onrender.com/api/v1/news')
       .then((response) => response.json())
       .then((data) => setNews(data))
       .catch((error) => console.error('Error fetching news:', error));
 
     // Fetch all categories
-    fetch('http://localhost:9000/api/v1/news-category')
+    fetch('https://bakend-wtc-4.onrender.com/api/v1/news-category')
       .then((response) => response.json())
       .then((data) => setCategories(data))
       .catch((error) => console.error('Error fetching categories:', error));

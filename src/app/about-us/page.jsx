@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import ProductionShowcaseL1 from "@/components/ProductionShowcaseL1";
@@ -7,9 +7,6 @@ import ProductionShowcaseL3 from "@/components/ProductionShowcaseL3";
 import ProductionSwiperL1 from "@/components/ProductionSwiperL1";
 import ProductionSwiperL2 from "@/components/ProductionSwiperL2";
 import ProductionSwiperL3 from "@/components/ProductionSwiperL3";
-import ProductionProcess from "@/components/ProductionProcess";
-import { FaTrain, FaFlask, FaWarehouse, FaTruck, FaCogs } from 'react-icons/fa';
-import { MdStorage, MdOutlineProductionQuantityLimits } from 'react-icons/md';
 import CompanyLayout from "@/components/CompanyLayout";
 import AboutUs2 from "@/components/AboutUs2";
 
@@ -39,92 +36,25 @@ const AboutUs = () => {
       ],
     },
     {
-      layoutType: "L22",
-      description: "WTC — новый бренд моторных, трансмиссионных и индустриальных масел для российского рынка и ближайшего зарубежья.",
-      title: "Масла производятся на мощностях современного, высокотехнологичного завода смазочных материалов в Калужской области, ранее принадлежавшего французской компании.",
-      img: "https://lemarc.ru/images/about-img.png"
-    }, 
-    {
-      layoutType: "Process",
-      title: "Production process",
-      cardData: [
-        {
-          icon: FaTrain,
-          title: "Доставка сырья",
-          details: ["Собственный железнодорожный путь от Киевского направления МЖД"]
-        },
-        {
-          icon: MdStorage,
-          title: "Прием и хранение компонентов",
-          details: [
-            "Базовые масла — 14 резервуаров",
-            "Присадки — 11 резервуаров",
-            "Упаковка — 800 паллетомест",
-            "Контроль качества"
-          ]
-        },
-        {
-          icon: FaCogs,
-          title: "Блендинг масел",
-          details: [
-            "3 автоматических блендера",
-            "Потоковый смеситель",
-            "Контроль качества"
-          ]
-        },
-        {
-          icon: FaFlask,
-          title: "Лаборатория",
-          details: ["Контроль качества на всех этапах производства"]
-        },
-        {
-          icon: MdOutlineProductionQuantityLimits,
-          title: "Хранение полуфабриката",
-          details: [
-            "16 резервуаров",
-            "Контроль качества"
-          ]
-        },
-        {
-          icon: FaWarehouse,
-          title: "6 линий розлива",
-          details: [
-            "1 л, 4 л, 20 л, 2×208 л, 1000 л",
-            "Контроль качества"
-          ]
-        },
-        {
-          icon: FaWarehouse,
-          title: "Хранение готовой продукции",
-          details: ["8000 паллетомест"]
-        },
-        {
-          icon: FaTruck,
-          title: "Доставка готовой продукции",
-          details: ["Доставка во все регионы России и страны СНГ"]
-        }
-      ]
-    },
-      {title: "Завод Lemarc",
-      imageSrc: "https://lemarc.ru/images/factory-bg.png",
-      imageAlt: "Завод Lemarc Overview",
+      title: "Наши ценности  ",
+      backgroundColor: "#edeae1",
       description:
-        "Современное высокотехнологичное производство мощностью до 75 000 тонн в год.",
+        "Обеспечить непрерывный доступ к актуальным технологиям в смазочных материалах",
       details: [
         {
-          subtitle: "Собственные ЖД пути",
+          subtitle: "Безопасность",
           text: "01",
         },
         {
-          subtitle: "Резервуарный парк 8 000 м³",
+          subtitle: "Экспертность и профессионализм",
           text: "02",
         },
         {
-          subtitle: "Склад готовой продукции на 8000 палето-мест",
+          subtitle: "Высокий уровень стандартов",
           text: "03",
         },
         {
-          subtitle: "Система одновременного дозирования мощностью 200 тонн в смену",
+          subtitle: "Ответственность",
           text: "04",
         },
       ],
@@ -157,7 +87,7 @@ const AboutUs = () => {
   ]);
 
   return (
-    <div className="container w-full  mx-auto flex flex-col gap-14 py-16">
+    <div className="container w-full mx-auto flex flex-col gap-14 py-16">
       {layouts.map((layout, index) => {
         switch (layout.layoutType) {
           case "L1":
@@ -211,7 +141,6 @@ const AboutUs = () => {
                 description={layout.description}
               />
             );
-            
           case "L3":
             return (
               <ProductionShowcaseL3
@@ -233,10 +162,15 @@ const AboutUs = () => {
                 buttonLabelsColor={layout.buttonLabelsColor}
               />
             );
+          
+    
           default:
             return null;
         }
+
+      
       })}
+      <CompanyLayout sections={[layouts[1]]} backgroundColor={layouts[1].backgroundColor} />
       {swipers.map((swiper, index) => {
         switch (swiper.layoutType) {
           case "L1":
@@ -267,7 +201,6 @@ const AboutUs = () => {
             return null;
         }
       })}
-
       <div id="capacity-section" className="py-16">
         <h2 className="text-2xl font-bold">Мощности</h2>
         <p>Information about the production capacity will go here...</p>
