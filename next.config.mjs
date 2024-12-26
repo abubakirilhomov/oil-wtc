@@ -1,10 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
-        domains: ['liquimoly.ru', ],
-        domains: ['w7.pngwing.com'],
-        domains: ["lemarc.ru"],
-      },
+  reactStrictMode: true, // Опционально: включает строгий режим React
+  images: {
+    domains: [
+      "liquimoly.ru",
+      "w7.pngwing.com",
+      "lemarc.ru",
+      "5.imimg.com",
+      "m.media-amazon.com",
+      "encrypted-tbn0.gstatic.com",
+      "via.placeholder.com",
+      "www.prom.uz", // Добавьте этот домен для загрузки изображений
+    ],
+  },
 };
 
 export default nextConfig;
