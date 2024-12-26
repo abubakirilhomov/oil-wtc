@@ -12,6 +12,7 @@ import "swiper/css/autoplay";
 import { Navigation, Autoplay } from "swiper/modules";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import productsData from "@/data/products"; // Импорт локальных данных продуктов
+// test
 
 const ProductSwiper = () => {
   // Инициализация локальных продуктов
