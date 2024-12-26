@@ -14,9 +14,6 @@ const Navbar = () => {
       label: 'О нас',
       href: '/about-us',
     },{
-      label: 'Каталог',
-      href: '/catalog',
-    },{
       label: 'Новости',
       href: '/news',
     },{
