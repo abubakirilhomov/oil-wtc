@@ -17,7 +17,7 @@ const ProductSwiper = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:9000/api/v1/products');
+      const response = await axios.get('https://bakend-wtc-4.onrender.com/api/v1/products');
       setProducts(response.data); // axios automatically parses JSON
       setLoading(false);
     } catch (error) {
@@ -90,7 +90,7 @@ const ProductSwiper = () => {
               <Link href="/products">
                 <div className="relative">
                   <img
-                    src={`http://localhost:9000/${product.image.main_images}`}
+                    src={`https://bakend-wtc-4.onrender.com/${product.image.main_images}`}
                     alt={product.name}
                     className="w-40 h-64 object-cover rounded-lg group-hover:opacity-50 transition-opacity duration-300"
                   />

@@ -12,7 +12,6 @@ import ProductSwiper from '@/components/ProductSwiper';
 import Otziv from '@/components/Otziv';
 import Partner from '@/components/Partner';
 import { Factory } from 'lucide-react';
-import FactoryInfo from '@/components/FactoryInfo';
 import HomeSwiper from '@/components/HomeSwiper';
 
 export default function HomePage() {
@@ -31,7 +30,6 @@ export default function HomePage() {
               <HomeSwiper/>
             </section>
 
-            <FactoryInfo/>
           </section>
           <section>
             <Partner/>

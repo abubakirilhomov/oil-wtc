@@ -4,7 +4,7 @@ import React from 'react';
 
 // Fetch data for individual news based on ID
 export async function generateMetadata({ params }) {
-  const response = await fetch(`http://localhost:9000/api/v1/news/${params.id}`);
+  const response = await fetch(`https://bakend-wtc-4.onrender.com/api/v1/news/${params.id}`);
   const newsItem = await response.json();
 
   return {
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }) {
 }
 
 const NewsDetail = async ({ params }) => {
-  const response = await fetch(`http://localhost:9000/api/v1/news/${params.id}`);
+  const response = await fetch(`https://bakend-wtc-4.onrender.com/api/v1/news/${params.id}`);
   const newsItem = await response.json();
 
   // Render loading state if the data isn't available

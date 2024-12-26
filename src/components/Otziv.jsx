@@ -17,7 +17,7 @@ export default function Otziv() {
 
   // Fetch topics from backend
   useEffect(() => {
-    fetch('http://localhost:9000/api/v1/applications')
+    fetch('https://bakend-wtc-4.onrender.com/api/v1/applications')
       .then(response => {
         if (!response.ok) throw new Error('Network response was not OK');
         return response.json();
@@ -41,7 +41,7 @@ export default function Otziv() {
     console.log('Form submitted:', formData);
 
     // Send formData to backend via POST request
-    fetch('http://localhost:9000/api/v1/applications', {
+    fetch('https://bakend-wtc-4.onrender.com/api/v1/applications', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

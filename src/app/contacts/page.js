@@ -2,28 +2,30 @@ import React from 'react';
 
 const Contacts = () => {
   return (
-    <div className="flex flex-col lg:flex-row justify-between px-4 lg:px-16 py-8">
-      <div className="lg:w-1/2 mb-8 lg:mb-0">
-        <h1 className="text-4xl font-bold mb-6">Контакты</h1>
+    <div className="flex flex-col lg:flex-row gap-8 justify-between px-4 lg:px-16 py-8 pt-32">
+      <div className="lg:w-1/2 space-y-8">
+        <h1 className="text-4xl font-bold text-gray-800">Контакты</h1>
 
-        <button className="btn border-black rounded-3xl">
+        <button className="btn bg-black text-white py-3 px-6 rounded-full hover:bg-gray-800 transition duration-300">
           SHOP.LEMARC
         </button>
 
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold mb-2">Офис Lemarc</h2>
-          <p className="text-lg mb-1">г. Москва, Павелецкая площадь, 2, стр. 2</p>
-          <p className="text-lg mb-1">📞 8 (800) 505-36-45</p>
-          <p className="text-lg">📧 info@lemarc.ru</p>
+        <div className="space-y-2">
+          <h2 className="text-2xl font-semibold text-gray-700">Офис Lemarc</h2>
+          <p className="text-lg text-gray-600">г. Москва, Павелецкая площадь, 2, стр. 2</p>
+          <p className="text-lg text-gray-600">📞 +998 99 999 99 99</p>
+          <p className="text-lg text-gray-600">📧 info@lemarc.ru</p>
         </div>
 
-        <hr className="border-gray-300 mb-8" />
+        <hr className="border-gray-300" />
 
-        <div className="mb-8">
-          <h2 className="text-2xl font-semibold mb-2">Завод Lemarc</h2>
-          <p className="text-lg mb-1">Калужская область, Боровский район, с. Ворсино, тер. Северная промышленная зона, владение 8</p>
-          <p className="text-lg mb-1">📞 8 (800) 505-36-45</p>
-          <p className="text-lg">📧 info@lemarc.ru</p>
+        <div className="space-y-2">
+          <h2 className="text-2xl font-semibold text-gray-700">Завод Lemarc</h2>
+          <p className="text-lg text-gray-600">
+            Калужская область, Боровский район, с. Ворсино, тер. Северная промышленная зона, владение 8
+          </p>
+          <p className="text-lg text-gray-600">📞 +998 99 999 99 99</p>
+          <p className="text-lg text-gray-600">📧 info@lemarc.ru</p>
         </div>
       </div>
 
@@ -36,7 +38,7 @@ const Contacts = () => {
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           title="Lemarc Office Map"
-          className="border-0 w-full h-[450px]"
+          className="border border-gray-300 rounded-lg shadow-sm"
         ></iframe>
       </div>
     </div>
