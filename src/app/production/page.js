@@ -182,10 +182,6 @@ const Production = () => {
         }
       })}
       <SexComponent/>
-      <div id="capacity-section" className="py-16">
-        <h2 className="text-2xl font-bold">Мощности</h2>
-        <p>Information about the production capacity will go here...</p>
-      </div>
     </div>
   );
 };
