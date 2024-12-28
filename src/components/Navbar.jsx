@@ -5,12 +5,10 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
+import {logo} from '../../public/Logo/logo1.png'
 
 const navLinks = [
-  {
-    label: 'Производство',
-    href: '/production',
-  },
+
   {
     label: 'Контакты',
     href: '/contacts',
@@ -28,6 +26,10 @@ const navLinks = [
   {
     label: 'Пресса о нас',
     href: '/about-us',
+  },
+  {
+    label: 'News',
+    href: '/news',
   },
 ];
 
@@ -52,6 +54,10 @@ function Navbar() {
       label: 'Производство',
       href: '/production',
     },
+    {
+      label: 'News',
+      href: '/news',
+    },
   ]
   const handleNavigation = (href) => {
     router.push(href);
@@ -59,15 +65,15 @@ function Navbar() {
   };
 
   return (
-    <nav className="w-full bg-white shadow-md border-b">
+    <nav className="w-full bg-white shadow-md border-b p-3">
       <div className="flex items-center justify-between px-4 py-2 mx-auto max-w-7xl">
         <div className="flex items-center flex-shrink-0">
           <Link href="/" onClick={() => setIsMenuOpen(false)}>
             <img
               src={
-                'https://sinteclubricants.ru/local/templates/SINTEC_LUBRICANTS_2022_REPIN/img/logo.svg'
+                '/Logo/logo1.png'
               }
-              className=""
+              className="w-32"
               alt="Logo"
             />
           </Link>
@@ -133,7 +139,7 @@ function Navbar() {
               </div>
             )}
           </div>
-          <button className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">
+          <button className="px-3 py-3 bg-primaryBlue text-white rounded-md">
             Подбор масла
           </button>
         </div>
