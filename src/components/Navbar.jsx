@@ -36,6 +36,23 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
 
+  const sidebarLinks = [
+    {
+      label: 'О нас',
+      href: '/about-us',
+    },{
+      label: 'Новости',
+      href: '/news',
+    },{
+      label: 'Контакты',
+      href: '/contacts',
+    },
+     
+    {
+      label: 'Производство',
+      href: '/production',
+    },
+  ]
   const handleNavigation = (href) => {
     router.push(href);
     setIsMenuOpen(false);
