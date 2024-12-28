@@ -2,24 +2,16 @@
 
 "use client";
 
-<<<<<<< HEAD
-import React, { useEffect, useState } from "react";
-=======
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation"; // Для Next.js App Router
 import Link from "next/link";
 import productsData from "@/data/products"; // Импорт локальных данных продуктов
->>>>>>> 1a860336e80023c76d993dc01e674e390538badd
 
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
-<<<<<<< HEAD
-
-=======
   const [mainImage, setMainImage] = useState(""); // Хранение текущего главного изображения
   const [availableImages, setAvailableImages] = useState([]); // Список изображений
   const params = useParams();
->>>>>>> 1a860336e80023c76d993dc01e674e390538badd
   const { id } = params;
 
   useEffect(() => {
@@ -47,22 +39,6 @@ const ProductPage = () => {
   const secondaryImages = product.image?.secondary_images || [];
 
   return (
-<<<<<<< HEAD
-    <div className="max-w-7xl mx-auto mt-8 pt-24 flex">
-      {/* Левая часть с дополнительными изображениями */}
-      <div className="w-1/5 space-y-4">
-        {secondaryImages.length > 0 ? (
-          secondaryImages.map((img, index) => (
-            <img
-              key={index}
-              src={`http://localhost:9000/${img}`}
-              alt={`Image ${index + 1}`}
-              className="w-full h-28 object-cover rounded-lg shadow"
-            />
-          ))
-        ) : (
-          <p className="text-left text-lg text-gray-600">Нет дополнительных изображений.</p>
-=======
     <div className="max-w-7xl mx-auto mt-8 pt-24 flex flex-col md:flex-row mb-10">
       <div className="w-full md:w-1/5 space-y-4">
         {availableImages.length > 0 ? (
@@ -79,31 +55,20 @@ const ProductPage = () => {
           <p className="text-left text-lg text-gray-600">
             Нет дополнительных изображений.
           </p>
->>>>>>> 1a860336e80023c76d993dc01e674e390538badd
         )}
       </div>
 
       {/* Центральное изображение */}
-<<<<<<< HEAD
-      <div className="flex-1 mx-8">
-        <img
-          src={`http://localhost:9000/${product.image.main_images[0]}`}
-=======
       <div className="w-full md:w-3/5 mx-8">
         <img
           src={mainImage}
->>>>>>> 1a860336e80023c76d993dc01e674e390538badd
           alt={product.name}
           className="w-full h-[600px] object-cover rounded-lg shadow-lg"
         />
       </div>
 
       {/* Правая часть с текстом */}
-<<<<<<< HEAD
-      <div className="w-1/3 space-y-6">
-=======
       <div className="w-full md:w-1/3 space-y-6 mt-8 md:mt-0">
->>>>>>> 1a860336e80023c76d993dc01e674e390538badd
         {/* Название */}
         <h2 className="text-5xl font-bold text-gray-800">{product.name}</h2>
 
@@ -125,18 +90,11 @@ const ProductPage = () => {
           <strong>Категория:</strong> {product.category}
         </p>
         <p className="text-lg text-gray-700">
-<<<<<<< HEAD
-          <strong>Цена:</strong> {product.price} UZS
-        </p>
-        <p className="text-lg text-gray-700">
-          <strong>Наличие:</strong> {product.stock > 0 ? "В наличии" : "Нет в наличии"}
-=======
           <strong>Цена:</strong> {product.price.toLocaleString()} UZS
         </p>
         <p className="text-lg text-gray-700">
           <strong>Наличие:</strong>{" "}
           {product.stock > 0 ? "В наличии" : "Нет в наличии"}
->>>>>>> 1a860336e80023c76d993dc01e674e390538badd
         </p>
         <p className="text-lg text-gray-700">
           <strong>Объем:</strong> {product.volume || "N/A"}

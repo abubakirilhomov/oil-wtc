@@ -52,10 +52,7 @@ const Products = () => {
   return (
     <div className="flex flex-col items-start min-h-screen pt-16">
       <div className="flex w-full max-w-7xl mx-auto mt-8">
-<<<<<<< HEAD
-=======
         {/* Боковая панель */}
->>>>>>> 1a860336e80023c76d993dc01e674e390538badd
         <aside className="w-1/4 p-4 mr-8 bg-gray-100 rounded-lg shadow-md">
           <div className="space-y-4">
             <div>
@@ -68,11 +65,7 @@ const Products = () => {
               </div>
               {showCategory && (
                 <div className="pl-4 mt-2 space-y-1 flex flex-col">
-<<<<<<< HEAD
-                  {category.map((cat) => (
-=======
                   {categories.map((cat) => (
->>>>>>> 1a860336e80023c76d993dc01e674e390538badd
                     <label
                       key={cat._id}
                       className="flex items-center bg-gray-50 px-3 py-2 rounded-md hover:bg-gray-200"
@@ -80,13 +73,7 @@ const Products = () => {
                       <input
                         type="checkbox"
                         checked={selectedCategories.includes(cat.category_name)}
-<<<<<<< HEAD
-                        onChange={() =>
-                          handleCheckboxChange(cat.category_name)
-                        }
-=======
                         onChange={() => handleCheckboxChange(cat.category_name)}
->>>>>>> 1a860336e80023c76d993dc01e674e390538badd
                         className="accent-blue-500"
                       />
                       <span className="ml-2">{cat.category_name}</span>
@@ -104,24 +91,6 @@ const Products = () => {
           <h2 className="text-6xl font-extrabold mb-8 text-gray-900 leading-tight">
             Для грузовых и тяжелых коммерческих автомобилей
           </h2>
-<<<<<<< HEAD
-          
-          <div className="grid grid-cols-2 gap-12 mt-12">
-            {filteredProducts.map((product) => (
-              <Link href={`/products/${product._id}`} key={product._id}>
-                <div className="flex flex-col h-full w-5/6 p-6 border-2 rounded-lg shadow-xl bg-gradient-to-r from-gray-50 via-gray-100 to-white cursor-pointer transition-transform transform hover:scale-105">
-                  <img
-                    src={`http://localhost:9000/${product.image.main_images[0]}`}
-                    alt={product.name}
-                    className="w-full h-[400px] object-cover rounded-lg mb-4"
-                  />
-                  <div className="mt-auto text-center">
-                    <h3 className="text-3xl font-bold">{product.name}</h3>
-                  </div>
-                </div>
-              </Link>
-            ))}
-=======
 
           {/* Включение компонента ProductSwiper */}
           <ProductSwiper />
@@ -149,7 +118,6 @@ const Products = () => {
                 Нет продуктов, соответствующих выбранным категориям.
               </p>
             )}
->>>>>>> 1a860336e80023c76d993dc01e674e390538badd
           </div>
         </main>
       </div>

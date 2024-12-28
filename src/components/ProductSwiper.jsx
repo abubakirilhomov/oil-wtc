@@ -30,78 +30,6 @@ const ProductSwiper = () => {
 
   return (
     <div className="p-14 bg-[#f8f6f1]">
-<<<<<<< HEAD
-      <div className="text-left">
-  <h1 className="text-7xl font-bold text-black leading-tight">
-    Линейка Масел
-  </h1>
-  <h2 className="text-5xl text-red-600 font-extrabold mt-4">
-    WTC
-  </h2>
-  <p className="text-3xl mt-6 max-w-3xl text-gray-700">
-    Высокотехнологичные смазочные материалы Lemarc закрывают широкий спектр
-    потребностей в обслуживании различного оборудования и техники.
-  </p>
-</div>
-
-      
-      {loading ? (
-        <div className="flex justify-center items-center h-64 gap-4">
-          <div className="loading loading-spinner loading-lg text-gray-500"></div>
-          <div className="grid grid-cols-4 gap-6 mt-6">
-            {Array.from({ length: 4 }).map((_, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="w-40 h-64 bg-gray-300 rounded-lg animate-pulse"></div>
-                <div className="w-32 h-4 bg-gray-300 mt-4 rounded animate-pulse"></div>
-                <div className="w-24 h-4 bg-gray-300 mt-2 rounded animate-pulse"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ) : (
-        <Swiper
-          spaceBetween={30}
-          slidesPerView={4}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
-          autoplay={{
-            delay: 1500,
-            disableOnInteraction: false,
-          }}
-          modules={[Navigation, Autoplay]}
-          onBeforeInit={(swiper) => {
-            if (typeof swiper.params.navigation !== 'boolean') {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-            }
-          }}
-          className="px-10"
-        >
-          {products.map((product, index) => (
-            <SwiperSlide 
-              key={product._id} 
-              className={`flex flex-col items-center relative group ${index !== 0 ? 'border-l border-black' : ''}`}
-            >
-              <Link href="/products">
-                <div className="relative">
-                  <img
-                    src={`http://localhost:9000/${product.image?.main_images || 'default-image.jpg'}`}
-                    alt={product.name || 'Product Image'}
-                    className="w-40 h-64 object-cover rounded-lg group-hover:opacity-50 transition-opacity duration-300"
-                  />
-                  <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="text-center text-xs p-4">
-                      <h3 className="text-2xl font-bold mb-2 text-black">{product.name || 'No Name'}</h3>
-                      <p className="text-md text-gray-700 mb-1">
-                        {truncateText(product.description, 20)}
-                      </p>
-                      <p className="text-lg">
-                        Price: ${product.price || 'N/A'} {product.discount_price && `(Discount: $${product.discount_price})`}
-                      </p>
-                    </div>
-=======
       <div className="mb-10">
         <h1 className="text-5xl font-bold text-black">Линейка Масел</h1>
         <h2 className="text-4xl text-red-600 font-bold">LEMARC</h2>
@@ -169,7 +97,6 @@ const ProductSwiper = () => {
                       {product.discount_price &&
                         ` (Скидка: ${product.discount_price.toLocaleString()} UZS)`}
                     </p>
->>>>>>> 1a860336e80023c76d993dc01e674e390538badd
                   </div>
                 </div>
               </div>
