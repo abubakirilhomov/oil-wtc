@@ -10,7 +10,9 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primaryBlue: "#022465"
       },
+
     },
   },
   plugins: [
