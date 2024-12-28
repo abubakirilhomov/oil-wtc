@@ -108,7 +108,7 @@ const LayoutsPage = () => {
             filteredLayouts.map((layout) => (
               <div
                 key={layout._id}
-                className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl"
+                className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 flex flex-col transition-transform transform  hover:shadow-xl"
               >
                 <img
                   src={`http://localhost:9000/${layout.images[0]}`}
