@@ -13,6 +13,7 @@ import Otziv from '@/components/Otziv';
 import Partner from '@/components/Partner';
 import { Factory } from 'lucide-react';
 import HomeSwiper from '@/components/HomeSwiper';
+import Sintec from '@/components/Sindec';
 
 export default function HomePage() {
   return (
@@ -22,6 +23,11 @@ export default function HomePage() {
         </section>
         <section className=" container mx-auto">
           <Dvigitel />
+        </section>
+
+
+        <section>
+          <Sintec/>
         </section>
         <section>
           <ProductSwiper />
