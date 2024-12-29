@@ -40,10 +40,8 @@ const Lineyka = () => {
       {/* Заголовок и кнопка */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-4xl font-bold text-[#333333]">ЛИНЕЙКИ МОТОРНЫХ МАСЕЛ</h1>
-        <button className="bg-[#d70026] text-white px-9 py-3 rounded-full text-lg hover:bg-[#b5001f]">Перейти в каталог</button>
-      </div>
-
-      <div className="flex flex-col md:flex-row items-start gap-8">
+        <button className=" px-9 py-3 rounded-full text-lg bg-primaryBlue text-white ">Перейти в каталог</button>
+      </div>      <div className="flex flex-col md:flex-row items-start gap-8">
         {/* Список продуктов */}
         <div className="flex flex-col gap-4 w-full md:w-1/6">
           {products.map((product) => (
@@ -66,13 +64,11 @@ const Lineyka = () => {
           ))}
         </div>
 
-        {/* Детальная информация */}
         <div className="flex-1 p-6 border rounded-lg bg-white shadow-lg relative">
-          <h2 className="text-3xl font-bold mb-4 text-[#d94e00]">
+          <h2 className="text-3xl font-bold mb-4 text-primaryBlue">
             {selectedProduct.name}
           </h2>
           <div className="flex flex-col md:flex-row gap-6">
-            {/* Левая часть с изображением */}
             <div className="flex flex-col items-center md:w-1/2">
               <img
                 src={selectedProduct.image}
@@ -81,13 +77,12 @@ const Lineyka = () => {
               />
             </div>
 
-            {/* Правая часть с описанием */}
             <div className="flex flex-col justify-between md:w-1/2">
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
                 {selectedProduct.description}
               </p>
               <div className="flex gap-4 mt-auto">
-                <button className="bg-[#d70026] text-white px-6 py-3 rounded-full text-lg hover:bg-[#b5001f]">
+                <button className="bg-primaryBlue text-white px-6 py-3 rounded-full text-lg ">
                   Подобрать масло
                 </button>
                 <button className="bg-[#f1f1f1] px-6 py-3 rounded-full text-lg hover:bg-[#e0e0e0]">
