@@ -3,11 +3,12 @@ import React from 'react';
 const Missiya = () => {
   return (
     <div
-      className="min-h-screen flex justify-center items-center bg-gray-100"
+      className="min-h-screen bg-cover bg-center flex justify-center items-center"
       style={{
-        background: 'linear-gradient(to right, #f8f8f8, #e6e6e6)',
+        backgroundImage: "url('https://sinteclubricants.ru/novaya-glavnaya-test/img/BG.png')",
       }}
     >
+      {/* Основной контент */}
       <div className="w-full max-w-7xl grid grid-cols-2 gap-10 items-center rounded-lg shadow-lg bg-white p-8">
         {/* Левая часть с текстом */}
         <div className="text-left">
