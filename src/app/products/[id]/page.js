@@ -25,7 +25,6 @@ const ProductPage = ({ params }) => {
 
   const secondaryImages = product.image?.secondary_images || [];
 
-  const secondaryImages = product.image?.secondary_images || [];
 
   return (
     <div className="max-w-7xl mx-auto mt-8 pt-24 flex">
