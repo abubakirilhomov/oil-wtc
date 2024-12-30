@@ -13,7 +13,7 @@ const Missiya = () => {
         {/* Левая часть с текстом */}
         <div className="text-left">
           <h2 className="text-5xl font-bold mb-6">НАША МИССИЯ</h2>
-          <p className="text-red-600 font-bold text-2xl mb-6">
+          <p className="text-primaryBlue font-bold text-2xl mb-6">
             ВЫГОДНОЕ РЕШЕНИЕ ДЛЯ НАДЁЖНОЙ РАБОТЫ ВАШЕГО АВТОМОБИЛЯ!
           </p>
           <p className="text-lg mb-4">

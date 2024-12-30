@@ -15,6 +15,7 @@ import { Factory } from 'lucide-react';
 import HomeSwiper from '@/components/HomeSwiper';
 import Missiya from '@/components/Missiya';
 import Lineyka from '@/components/Lineyka';
+import Xz from '@/components/Sindec';
 
 export default function HomePage() {
   return (
@@ -22,8 +23,9 @@ export default function HomePage() {
       <section className="container mx-auto">
           <Banner />
         </section>
-        <section className=" container mx-auto">
-          <Dvigitel />
+      
+        <section>
+          <Xz/>
         </section>
         <section className=" container mx-auto">
           <Missiya />

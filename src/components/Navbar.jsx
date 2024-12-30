@@ -18,19 +18,17 @@ const navLinks = [
   {
     label: 'Где купить',
     href: '#',
-    subItems: [
-      { label: 'карта', href: '/map' },
-      { label: 'шоп', href: '/shop' },
-    ],
-  },
-  {
-    label: 'Пресса о нас',
-    href: '/about-us',
+   
   },
   {
     label: 'News',
+    href: '/about-us',
+  },
+  {
+    label: 'Производство',
     href: '/news',
   },
+
 ];
 
 function Navbar() {
