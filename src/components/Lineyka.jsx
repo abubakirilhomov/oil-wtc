@@ -65,45 +65,6 @@ const Lineyka = () => {
         </div>
 
         <div className="flex-1 p-6 border rounded-lg bg-white shadow-lg relative">
-<<<<<<< HEAD
-  <h2 className="text-5xl font-bold mb-6 text-center text-[#d70026]">
-    {selectedProduct.name}
-  </h2>
-  <div className="flex flex-col md:flex-row gap-6">
-    {/* Левая часть с изображением */}
-    <div className="flex flex-col items-center md:w-1/2">
-      <img
-        src={selectedProduct.image}
-        alt={selectedProduct.name}
-        className="w-full h-64 object-contain rounded-md"
-      />
-      {/* Дополнительное изображение */}
-      {selectedProduct.id === 1 && (
-        <img
-          src="https://sinteclubricants.ru/novaya-glavnaya-test/img/premium9000.svg"
-          alt="Дополнительное изображение"
-          className="w-1/5 mt-4"
-        />
-      )}
-    </div>
-
-    {/* Правая часть с описанием */}
-    <div className="flex flex-col justify-between md:w-1/2">
-      <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-        {selectedProduct.description}
-      </p>
-      <div className="flex gap-4 mt-auto">
-        <button className="bg-[#d70026] text-white px-6 py-3 rounded-full text-lg hover:bg-[#b5001f]">
-          Подобрать масло
-        </button>
-        <button className="bg-[#f1f1f1] px-6 py-3 rounded-full text-lg hover:bg-[#e0e0e0]">
-          О технологии
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-=======
           <h2 className="text-3xl font-bold mb-4 text-primaryBlue">
             {selectedProduct.name}
           </h2>
@@ -131,7 +92,6 @@ const Lineyka = () => {
             </div>
           </div>
         </div>
->>>>>>> 67635eb6df6cdf91c391320dbcc26c5a90e38313
       </div>
     </div>
   );

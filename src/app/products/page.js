@@ -14,13 +14,13 @@ const Products = () => {
 
   useEffect(() => {
     // Fetch categories
-    fetch("https://bakend-wtc-4.onrender.com/api/v1/categories")
+    fetch("https://bakend-wtc.onrender.com/api/v1/categories")
       .then((res) => res.json())
       .then((data) => setCategory(data))
       .catch((error) => console.error("Error fetching categories:", error));
 
     // Fetch products
-    fetch("https://bakend-wtc-4.onrender.com/api/v1/products")
+    fetch("https://bakend-wtc.onrender.com/api/v1/products")
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error fetching products:", error));
@@ -98,7 +98,7 @@ const Products = () => {
               <Link href={`/products/${product._id}`} key={product._id}>
                 <div className="flex flex-col h-full w-5/6 p-6 border-2 rounded-lg shadow-xl bg-gradient-to-r from-gray-50 via-gray-100 to-white cursor-pointer transition-transform transform hover:scale-105">
                   <img
-                    src={`https://bakend-wtc-4.onrender.com/${product.image.main_images[0]}`}
+                    src={`https://bakend-wtc.onrender.com//${product.image.main_images[0]}`}
                     alt={product.name}
                     className="w-full h-[400px] object-cover rounded-lg mb-4"
                   />

@@ -9,8 +9,6 @@ import "swiper/css/autoplay";
 import { Navigation, Autoplay } from "swiper/modules";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 
-
-
 const ProductSwiper = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,9 +18,9 @@ const ProductSwiper = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        "https://bakend-wtc-4.onrender.com/api/v1/products"
+        "https://bakend-wtc.onrender.com/api/v1/products"
       );
-      setProducts(response.data); // axios автоматически парсит JSON
+      setProducts(response.data);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -35,8 +33,11 @@ const ProductSwiper = () => {
   }, []);
 
   const chunkArray = (array, size) =>
-    array.reduce((acc, _, i) => 
-      (i % size === 0 ? acc.push(array.slice(i, i + size)) : acc, acc), []);
+    array.reduce(
+      (acc, _, i) =>
+        (i % size === 0 ? acc.push(array.slice(i, i + size)) : acc, acc),
+      []
+    );
 
   const productChunks = chunkArray(products, 6);
 
@@ -65,22 +66,13 @@ const ProductSwiper = () => {
         </div>
       </div>
       {loading ? (
-        <div className="flex justify-center items-center h-64 gap-4">
+        <div className="flex justify-center items-center h-64">
           <div className="loading loading-spinner loading-lg text-gray-500"></div>
-          <div className="grid grid-cols-4 gap-6 mt-6">
-            {Array.from({ length: 4 }).map((_, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="w-40 h-64 bg-gray-300 rounded-lg animate-pulse"></div>
-                <div className="w-32 h-4 bg-gray-300 mt-4 rounded animate-pulse"></div>
-                <div className="w-24 h-4 bg-gray-300 mt-2 rounded animate-pulse"></div>
-              </div>
-            ))}
-          </div>
         </div>
       ) : (
         <Swiper
           spaceBetween={30}
-          slidesPerView={1} // Оставляем 1 слайд на экран
+          slidesPerView={1}
           navigation={{
             prevEl: prevRef.current,
             nextEl: nextRef.current,
@@ -101,7 +93,7 @@ const ProductSwiper = () => {
                   <Link key={product._id} href="/products">
                     <div className="relative card card-compact bg-opacity-55 hover:bg-opacity-100 duration-300 bg-primaryBlue shadow-xl">
                       <img
-                        src={`https://bakend-wtc-4.onrender.com/${product.image.main_images}`}
+                        src={`https://bakend-wtc.onrender.com//${product.image.main_images}`}
                         alt={product.name}
                         className="w-full h-52 object-cover rounded-lg z-[999] duration-300"
                       />

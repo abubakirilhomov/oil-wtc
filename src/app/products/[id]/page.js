@@ -9,7 +9,7 @@ const ProductPage = ({ params }) => {
 
   useEffect(() => {
     if (id) {
-      fetch(`https://bakend-wtc-4.onrender.com/api/v1/products/${id}`)
+      fetch(`https://bakend-wtc.onrender.com/api/v1/products/${id}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error("Network response was not ok");
@@ -34,7 +34,7 @@ const ProductPage = ({ params }) => {
           secondaryImages.map((img, index) => (
             <img
               key={index}
-              src={`https://bakend-wtc-4.onrender.com/${img}`}
+              src={`https://bakend-wtc.onrender.com/${img}`}
               alt={`Image ${index + 1}`}
               className="w-full h-28 object-cover rounded-lg shadow"
             />
@@ -47,7 +47,7 @@ const ProductPage = ({ params }) => {
       {/* Центральное изображение */}
       <div className="flex-1 mx-8">
         <img
-          src={`https://bakend-wtc-4.onrender.com/${product.image.main_images[0]}`}
+          src={`https://bakend-wtc.onrender.com//${product.image.main_images[0]}`}
           alt={product.name}
           className="w-full h-[600px] object-cover rounded-lg shadow-lg"
         />

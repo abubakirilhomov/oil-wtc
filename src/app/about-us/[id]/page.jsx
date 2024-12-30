@@ -15,7 +15,7 @@ const LayoutDetails = () => {
 
     const fetchLayout = async () => {
       try {
-        const response = await axios.get(`http://localhost:9000/api/v1/layout/about/${id}`);
+        const response = await axios.get(`https://bakend-wtc.onrender.com/api/v1/layout/about/${id}`);
         setLayout(response.data);
       } catch (error) {
         console.error("Error fetching layout details:", error);
@@ -38,7 +38,7 @@ const LayoutDetails = () => {
      
       <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
         <img
-          src={`http://localhost:9000/${layout.images[0]}`}
+          src={`https://bakend-wtc.onrender.com//${layout.images[0]}`}
           alt={layout.title}
           className="w-full h-80 object-cover"
         />

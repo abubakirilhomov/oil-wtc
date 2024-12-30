@@ -12,7 +12,7 @@ const LayoutsPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = "http://localhost:9000/api/v1";
+  const API_BASE_URL = "https://bakend-wtc.onrender.com//api/v1";
 
   useEffect(() => {
     const fetchLayoutTypes = async () => {
@@ -111,7 +111,7 @@ const LayoutsPage = () => {
                 className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl"
               >
                 <img
-                  src={`http://localhost:9000/${layout.images[0]}`}
+                  src={`https://bakend-wtc.onrender.com//${layout.images[0]}`}
                   alt={layout.title}
                   onError={(e) => { e.target.src = 'https://via.placeholder.com/300x200'; }}
                   className="w-full h-48 object-cover"
