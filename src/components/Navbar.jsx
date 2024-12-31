@@ -1,147 +1,74 @@
-"use client"
+"use client";
 
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
-import {logo} from '../../public/Logo/logo1.png'
 
 const navLinks = [
-
-  {
-    label: 'Контакты',
-    href: '/contacts',
-  },
-
- 
-  {
-    label: 'Где купить',
-    href: '#',
-   
-  },
-  {
-    label: 'News',
-    href: '/about-us',
-  },
-  {
-    label: 'Производство',
-    href: '/news',
-  },
-
+  { label: 'Контакты', href: '/contacts' },
+  { label: 'Где купить', href: '#' },
+  { label: 'News', href: '/about-us' },
+  { label: 'Производство', href: '/news' },
 ];
 
 function Navbar() {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isLangModalOpen, setIsLangModalOpen] = useState(false);
 
-  const sidebarLinks = [
-    {
-      label: 'О нас',
-      href: '/about-us',
-    },{
-      label: 'Новости',
-      href: '/news',
-    },{
-      label: 'Контакты',
-      href: '/contacts',
-    },
-     
-    {
-      label: 'Производство',
-      href: '/production',
-    },
-    {
-      label: 'News',
-      href: '/news',
-    },
-  ]
   const handleNavigation = (href) => {
     router.push(href);
     setIsMenuOpen(false);
   };
 
   return (
-    <nav className="w-full bg-white shadow-md border-b p-3">
+    <nav className="w-full bg-white shadow-md border-b p-3 relative">
       <div className="flex items-center justify-between px-4 py-2 mx-auto max-w-7xl">
+        {/* Logo */}
         <div className="flex items-center flex-shrink-0">
           <Link href="/" onClick={() => setIsMenuOpen(false)}>
-            <img
-              src={
-                '/Logo/logo1.png'
-              }
+            <Image
+              src={'/Logo/logo1.png'}
               className="w-32"
               alt="Logo"
+              width={128}
+              height={32}
             />
           </Link>
         </div>
 
+        {/* Desktop Menu */}
         <div className="hidden lg:flex lg:items-center lg:justify-center lg:flex-1">
           <ul className="flex space-x-6">
             {navLinks.map((link, index) => (
-              <li key={index} className="relative group">
-                {link.subItems ? (
-                  <>
-                    <button className="flex items-center space-x-1 text-gray-700 hover:text-gray-900">
-                      <span>{link.label}</span>
-                      <ChevronDown className="h-4 w-4" />
-                    </button>
-                    <div className="absolute top-full left-0 hidden group-hover:block w-48 bg-white border rounded-md shadow-lg py-2">
-                      {link.subItems.map((subItem, subIndex) => (
-                        <Link
-                          key={subIndex}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-gray-700 hover:bg-gray-100  w-full"
-                        >
-                          {subItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <Link href={link.href}>
-                    <span className="text-gray-700 hover:text-gray-900">
-                      {link.label}
-                    </span>
-                  </Link>
-                )}
+              <li key={index}>
+                <Link href={link.href}>
+                  <span className="text-gray-700 hover:text-gray-900">
+                    {link.label}
+                  </span>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
+        {/* Desktop Actions */}
         <div className="hidden lg:flex lg:items-center space-x-4">
-          <div className="relative group">
-            <button
-              className="px-4 py-1 border rounded hover:bg-gray-50 flex items-center"
-              onClick={() => setIsLangOpen(!isLangOpen)}
-            >
-              RU
-              <ChevronDown className="h-4 w-4 ml-1" />
-            </button>
-            {isLangOpen && (
-              <div className="absolute top-full left-0 w-20 bg-white border rounded-md shadow-lg">
-                <button
-                  className="block w-full px-4 py-2 text-gray-700 hover:bg-gray-100"
-                  onClick={() => setIsLangOpen(false)}
-                >
-                  RU
-                </button>
-                <button
-                  className="block w-full px-4 py-2 text-gray-700 hover:bg-gray-100"
-                  onClick={() => setIsLangOpen(false)}
-                >
-                  EN
-                </button>
-              </div>
-            )}
-          </div>
+          <button
+            className="px-4 py-1 border rounded hover:bg-gray-50 flex items-center"
+            onClick={() => setIsLangModalOpen(true)}
+          >
+            RU
+            <ChevronDown className="h-4 w-4 ml-1" />
+          </button>
           <button className="px-3 py-3 bg-primaryBlue text-white rounded-md">
             Подбор масла
           </button>
         </div>
 
+        {/* Mobile Menu Button */}
         <div className="flex lg:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -149,11 +76,7 @@ function Navbar() {
             aria-expanded="false"
           >
             <span className="sr-only">Open main menu</span>
-            {isMenuOpen ? (
-              <span className="text-xl font-bold">✕</span>
-            ) : (
-              <span className="text-xl font-bold">☰</span>
-            )}
+            {isMenuOpen ? <span className="text-xl font-bold">✕</span> : <span className="text-xl font-bold">☰</span>}
           </button>
         </div>
       </div>
@@ -162,34 +85,13 @@ function Navbar() {
       <div className={`${isMenuOpen ? 'block' : 'hidden'} lg:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1">
           {navLinks.map((link, index) => (
-            <React.Fragment key={index}>
-              {link.subItems ? (
-                <>
-                  <button
-                    className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {link.label}
-                  </button>
-                  {link.subItems.map((subItem, subIndex) => (
-                    <button
-                      key={subIndex}
-                      className="block w-full text-left px-6 py-2 text-sm font-medium text-gray-500 rounded-md hover:text-gray-900 hover:bg-gray-50"
-                      onClick={() => handleNavigation(subItem.href)}
-                    >
-                      {subItem.label}
-                    </button>
-                  ))}
-                </>
-              ) : (
-                <button
-                  className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50"
-                  onClick={() => handleNavigation(link.href)}
-                >
-                  {link.label}
-                </button>
-              )}
-            </React.Fragment>
+            <button
+              key={index}
+              className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50"
+              onClick={() => handleNavigation(link.href)}
+            >
+              {link.label}
+            </button>
           ))}
         </div>
         <div className="px-4 py-3 space-y-2">
@@ -197,10 +99,31 @@ function Navbar() {
             RU
           </button>
           <button className="w-full px-4 py-2 text-base font-medium text-white bg-red-600 rounded hover:bg-red-700 focus:outline-none">
-            Подбор масла 
+            Подбор масла
           </button>
         </div>
       </div>
+
+      {/* Language Modal */}
+      {isLangModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+          <div className="bg-white p-6 rounded-md shadow-lg w-64">
+            <h2 className="text-lg font-bold text-center mb-4">Select Language</h2>
+            <button
+              className="block w-full px-4 py-2 mb-2 text-gray-700 text-center hover:bg-gray-100 rounded"
+              onClick={() => setIsLangModalOpen(false)}
+            >
+              RU
+            </button>
+            <button
+              className="block w-full px-4 py-2 text-gray-700 text-center hover:bg-gray-100 rounded"
+              onClick={() => setIsLangModalOpen(false)}
+            >
+              EN
+            </button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

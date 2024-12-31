@@ -42,27 +42,22 @@ const ProductSwiper = () => {
   const productChunks = chunkArray(products, 6);
 
   return (
-    <div className="p-14 bg-[#f8f6f1]">
-      <div className="mb-10">
-        <h1 className="text-5xl font-bold text-black">Линейка Масел</h1>
-        <h2 className="text-4xl text-red-600 font-bold">LEMARC</h2>
-        <p className="text-lg mt-4 max-w-md">
-          Высокотехнологичные смазочные материалы Lemarc закрывают широкий
-          спектр потребностей в обслуживании различного оборудования и техники.
-        </p>
-      </div>
-      <div className="flex justify-end container max-w-[90%] mb-10 items-center mt-4 gap-7">
-        <div
-          ref={prevRef}
-          className="swiper-button-prev4 cursor-pointer text-4xl text-gray-700 hover:text-primaryBlue"
-        >
-          <FaChevronLeft className="text-2xl" />
-        </div>
-        <div
-          ref={nextRef}
-          className="swiper-button-next3 cursor-pointer text-4xl text-gray-700 hover:text-primaryBlue"
-        >
-          <FaChevronRight className="text-2xl" />
+    <div className="p-14">
+      <div className="flex justify-between items-center mb-10">
+        <h1 className="text-3xl font-bold text-black">Вся продукция Sintec</h1>
+        <div className="flex items-center gap-7">
+          <div
+            ref={prevRef}
+            className="swiper-button-prev4 cursor-pointer text-4xl text-gray-700 hover:text-primaryBlue"
+          >
+            <FaChevronLeft className="text-2xl" />
+          </div>
+          <div
+            ref={nextRef}
+            className="swiper-button-next3 cursor-pointer text-4xl text-gray-700 hover:text-primaryBlue"
+          >
+            <FaChevronRight className="text-2xl" />
+          </div>
         </div>
       </div>
       {loading ? (

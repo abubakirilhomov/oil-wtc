@@ -12,12 +12,12 @@ const LayoutsPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = "https://bakend-wtc.onrender.com//api/v1";
+  const API_BASE_URL = "https://bakend-wtc.onrender.com/api/v1/news-type";
 
   useEffect(() => {
     const fetchLayoutTypes = async () => {
       try {
-        const response = await axios.get(`${API_BASE_URL}/layout-type`);
+        const response = await axios.get(`${API_BASE_URL}/news-type`);
         setLayoutTypes(response.data);
       } catch (error) {
         console.error("Ошибка при получении типов макетов:", error);
@@ -33,7 +33,7 @@ const LayoutsPage = () => {
       setLoading(true);
       setError(null);
       try {
-        const url = `${API_BASE_URL}/layout/about`;
+        const url = `${API_BASE_URL}/news-stype`;
         const response = await axios.get(url);
         setLayouts(response.data);
         setFilteredLayouts(response.data); // Инициализация отфильтрованных макетов
@@ -111,7 +111,7 @@ const LayoutsPage = () => {
                 className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl"
               >
                 <img
-                  src={`https://bakend-wtc.onrender.com//${layout.images[0]}`}
+                  src={`https://bakend-wtc.onrender.com/${layout.images[0]}`}
                   alt={layout.title}
                   onError={(e) => { e.target.src = 'https://via.placeholder.com/300x200'; }}
                   className="w-full h-48 object-cover"
