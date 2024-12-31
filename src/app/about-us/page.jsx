@@ -12,7 +12,7 @@ const LayoutsPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const API_BASE_URL = "https://bakend-wtc.onrender.com/api/v1/news-type";
+  const API_BASE_URL = "https://bakend-wtc.onrender.com/api/v1";
 
   useEffect(() => {
     const fetchLayoutTypes = async () => {
@@ -33,7 +33,7 @@ const LayoutsPage = () => {
       setLoading(true);
       setError(null);
       try {
-        const url = `${API_BASE_URL}/news-stype`;
+        const url = `${API_BASE_URL}/news`;
         const response = await axios.get(url);
         setLayouts(response.data);
         setFilteredLayouts(response.data); // Инициализация отфильтрованных макетов
@@ -60,17 +60,16 @@ const LayoutsPage = () => {
     if (selectedValue === "all") {
       setFilteredLayouts(layouts); // Показываем все макеты
     } else {
-      const filtered = layouts.filter((layout) => layout.type === selectedValue);
+      const filtered = layouts.filter((layout) => layout.news_type === selectedValue);
       setFilteredLayouts(filtered);
     }
   };
 
   return (
     <div className="container mx-auto py-10 px-4">
-      <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Пресса о нас</h1>
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 space-y-4 md:space-y-0 md:space-x-4">
         <h2 className="text-6xl font-medium text-white-700">
-         О нас
+         Новости
         </h2>
         <select
           id="layoutType"
@@ -108,7 +107,7 @@ const LayoutsPage = () => {
             filteredLayouts.map((layout) => (
               <div
                 key={layout._id}
-                className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 flex flex-col transition-transform transform hover:scale-105 hover:shadow-xl"
+                className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 flex flex-col transition-transform transform  hover:shadow-xl"
               >
                 <img
                   src={`https://bakend-wtc.onrender.com/${layout.images[0]}`}
@@ -119,11 +118,11 @@ const LayoutsPage = () => {
                 />
                 <div className="p-6 flex-grow flex flex-col">
                   <p className="text-sm text-gray-500 mb-2">
-                    {new Date(layout.date).toLocaleDateString()}
+                    {new Date(layout.data).toLocaleDateString()}
                   </p>
                   <h2 className="text-xl font-semibold text-gray-800 mb-3">{layout.title}</h2>
                   <p className="text-gray-600 mb-4 flex-grow">
-                    {truncateText(layout.description[0], 120)}
+                    {truncateText(layout.descriptions, 120)}
                   </p>
                   <Link href={`/about-us/${layout._id}`} className="mt-auto text-blue-600 font-semibold hover:underline">
                     Читать далее &raquo;
