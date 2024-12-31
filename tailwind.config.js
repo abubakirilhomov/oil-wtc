@@ -7,10 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'afacad-flux': ['"Afacad Flux"', 'sans-serif'],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primaryBlue: "#022465"
       },
+
     },
   },
   plugins: [

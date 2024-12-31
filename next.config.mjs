@@ -11,6 +11,9 @@ const nextConfig = {
       "encrypted-tbn0.gstatic.com",
       "via.placeholder.com",
       "www.prom.uz", // Добавьте этот домен для загрузки изображений
+      'avatars.mds.yandex.net',
+      'pr-lg.ru',
+      'a.d-cd.net'
     ],
   },
 };
