@@ -147,7 +147,7 @@ export default function Otziv() {
             <button
               type="submit"
               disabled={isLoading}
-              className="bg-[#4477ff] text-white px-8 py-2 rounded-full font-semibold hover:bg-[#3366ee] transition-colors disabled:opacity-50"
+              className="bg-primaryBlue w-full font-light text-white px-8 py-2 rounded-full  hover:bg-[#3366ee] transition-colors disabled:opacity-50"
             >
               {isLoading ? (
                 <span className="flex items-center justify-center">
