@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // For icons
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const Products = () => {
   const [showCategory, setShowCategory] = useState(false);
@@ -96,9 +95,19 @@ const Products = () => {
               <Link href={`/products/${product._id}`} key={product._id}>
                 <div className="flex flex-col h-full w-full p-4 border rounded-lg shadow-md bg-gradient-to-r from-gray-50 via-gray-100 to-white cursor-pointer transition-transform transform hover:scale-105">
                   <img
-                    src={`https://bakend-wtc.onrender.com/${product.image.main_images[0]}`}
+                    src={
+                      product?.image?.main_images?.length
+                        ? 
+                          `https://bakend-wtc.onrender.com${product.image.main_images[0]}`
+                        : // Fallback if there's no `main_images` array
+                          "https://via.placeholder.com/300x200"
+                    }
                     alt={product.name}
                     className="w-full h-64 object-cover rounded-lg mb-4"
+                    onError={(e) => {
+                      // Fallback if the image URL fails
+                      e.target.src = "https://via.placeholder.com/300x200";
+                    }}
                   />
                   <div className="mt-auto text-center">
                     <h3 className="text-lg font-semibold">{product.name}</h3>

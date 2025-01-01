@@ -68,7 +68,7 @@ const LayoutsPage = () => {
   return (
     <div className="container mx-auto py-10 px-4">
       <div className="flex flex-col md:flex-row justify-between items-center mb-8 space-y-4 md:space-y-0 md:space-x-4">
-        <h2 className="text-3xl font-medium text-primaryBlue">
+        <h2 className="text-6xl font-medium text-white-700">
          Новости
         </h2>
         <select
