@@ -53,7 +53,7 @@ const ProductPage = ({ params }) => {
       {/* Центральное изображение */}
       <div className="flex-1 mx-8">
         <img
-          src={`https://bakend-wtc.onrender.com/${product.image.main_images[0]}`}
+          src={`https://bakend-wtc.onrender.com${product.image.main_images[0]}`}
           alt={product.name}
           className="w-full h-[600px] object-cover rounded-lg shadow-xl"
         />

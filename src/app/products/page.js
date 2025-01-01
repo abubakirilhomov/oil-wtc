@@ -96,7 +96,7 @@ const Products = () => {
               <Link href={`/products/${product._id}`} key={product._id}>
                 <div className="flex flex-col h-full w-full p-4 border rounded-lg shadow-md bg-gradient-to-r from-gray-50 via-gray-100 to-white cursor-pointer transition-transform transform hover:scale-105">
                   <img
-                    src={`https://bakend-wtc.onrender.com//${product.image.main_images[0]}`}
+                    src={`https://bakend-wtc.onrender.com/${product.image.main_images[0]}`}
                     alt={product.name}
                     className="w-full h-64 object-cover rounded-lg mb-4"
                   />
