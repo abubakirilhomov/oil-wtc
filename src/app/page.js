@@ -16,6 +16,8 @@ import HomeSwiper from '@/components/HomeSwiper';
 import Missiya from '@/components/Missiya';
 import Lineyka from '@/components/Lineyka';
 import Xz from '@/components/Sindec';
+import NewsPage from './news/page';
+import LayoutsPage from './about-us/page';
 
 export default function HomePage() {
   return (
@@ -33,15 +35,13 @@ export default function HomePage() {
         <section className=" container mx-auto min-h-screen max-w-7xl">
           <Lineyka />
           <ProductSwiper />
+          <LayoutsPage/>
+ 
 
         </section>
-        <section>
-      
-       
-          {/* <section>
-            <Partner/>
-          </section> */}
-        </section>
+
+
+  
         <section>
             <Otziv/>
         </section>
