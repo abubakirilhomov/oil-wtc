@@ -91,7 +91,11 @@ const Lineyka = () => {
   const [isImageFullScreen, setIsImageFullScreen] = useState(false);  
   const [showTechnology, setShowTechnology] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleDropdownn = () => {
+    setIsOpen(!isOpen);
+  };
 
   const handleImageClick = () => {
     setIsImageFullScreen(true); 
@@ -208,7 +212,13 @@ const Lineyka = () => {
 </button>
 
 {isDropdownOpen && (
-  <div className="absolute top-[-300px] left-0 right-0 mx-auto w-full max-w-xl bg-gray-100 border border-gray-300 shadow-lg rounded-lg p-6 z-50">
+  <div className="absolute top-[-150px] left-0 right-0 mx-auto w-full max-w-xl bg-gray-100 border border-gray-300 shadow-lg rounded-lg p-6 z-50">
+       <button
+      onClick={() => setIsDropdownOpen(false)} // Закрываем выпадающее меню
+      className="absolute top-3 right-3 text-xl font-bold text-red-500"
+    >
+      X
+    </button>
     <h3 className="text-2xl font-bold mb-4 text-center text-gray-800">
       Спецификации: SAE J1034, ASTM D1384, ASTM D2809 и ASTM D4340
     </h3>
@@ -257,51 +267,7 @@ const Lineyka = () => {
             </div>
           </div>
 
-          {showTechnology && (
-            <div className="mt-6 p-4 bg-gray-100 border rounded-lg flex flex-col gap-4">
-              <h3 className="text-2xl font-bold mb-2 text-center">
-                Спецификации: SAE J1034, ASTM D1384, ASTM D2809 и ASTM D4340
-              </h3>
-              <p className="text-md text-gray-700 leading-relaxed">
-                {selectedProduct.description2}
-              </p>
-
-              <div className="flex flex-col md:flex-row-reverse md:justify-between gap-4">
-                <div className="md:w-2/5 flex justify-center items-center">
-                  <img
-                    src={selectedProduct.img}
-                    alt="Technology"
-                    className="w-full h-auto object-contain rounded-md"
-                    onClick={handleImageClick}  
-                  />
-                </div>
-
-                <div className="md:w-3/5 flex flex-col">
-                  {selectedProduct.title && (
-                    <h4 className="text-xl font-semibold mb-2 text-gray-800">
-                      {selectedProduct.title}
-                    </h4>
-                  )}
-                  {selectedProduct.description3 && (
-                    <p className="text-md text-gray-700 leading-relaxed">
-                      {selectedProduct.description3}
-                    </p>
-                  )}
-
-                  {selectedProduct.title2 && (
-                    <h4 className="text-xl font-semibold mb-2 text-gray-800">
-                      {selectedProduct.title2}
-                    </h4>
-                  )}
-                  {selectedProduct.description4 && (
-                    <p className="text-md text-gray-700 leading-relaxed">
-                      {selectedProduct.description4}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-          )}
+         
         </div>
       </div>
 
