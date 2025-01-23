@@ -7,10 +7,14 @@ import { useRouter } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Контакты', href: '/contacts' },
+  { label: 'Новости', href: '/about-us' },
+  { label: 'О Компании', href: '/news' },
   { label: 'Где купить', href: '#' },
-  { label: 'News', href: '/about-us' },
-  { label: 'Производство', href: '/news' },
+  { label: 'Контакты', href: '/contacts' },
+
+
+
+
 ];
 
 function Navbar() {
@@ -26,7 +30,6 @@ function Navbar() {
   return (
     <nav className="w-full bg-white shadow-md border-b p-3 relative">
       <div className="flex items-center justify-between px-4 py-2 mx-auto max-w-7xl">
-        {/* Logo */}
         <div className="flex items-center flex-shrink-0">
           <Link href="/" onClick={() => setIsMenuOpen(false)}>
             <Image
@@ -39,7 +42,6 @@ function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Menu */}
         <div className="hidden lg:flex lg:items-center lg:justify-center lg:flex-1">
           <ul className="flex space-x-6">
             {navLinks.map((link, index) => (
@@ -54,7 +56,6 @@ function Navbar() {
           </ul>
         </div>
 
-        {/* Desktop Actions */}
         <div className="hidden lg:flex lg:items-center space-x-4">
           <button
             className="px-4 py-1 border rounded hover:bg-gray-50 flex items-center"
@@ -68,7 +69,6 @@ function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
         <div className="flex lg:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -81,7 +81,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div className={`${isMenuOpen ? 'block' : 'hidden'} lg:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1">
           {navLinks.map((link, index) => (
@@ -104,7 +103,6 @@ function Navbar() {
         </div>
       </div>
 
-      {/* Language Modal */}
       {isLangModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-md shadow-lg w-64">

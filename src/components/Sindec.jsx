@@ -10,7 +10,7 @@ const Xz = () => {
     <div className="container mx-auto my-16 px-4 lg:px-20">
       {/* Header Section */}
       <p className="text-5xl  text-black w-full lg:w-2/3 font-light">
-        ПОЧЕМУ SINTEC — ЭТО УМНЫЙ ВЫБОР?
+        ПОЧЕМУ VERTEX — ЭТО УМНЫЙ ВЫБОР?
       </p>
 
       <div className="flex flex-col lg:flex-row mt-16 justify-center gap-12">

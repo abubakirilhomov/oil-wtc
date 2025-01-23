@@ -1,8 +1,12 @@
+import Otziv from '@/components/Otziv';
 import React from 'react';
 
 const Contacts = () => {
   return (
-    <div className="flex flex-col lg:flex-row gap-8 justify-between px-4 lg:px-16 py-8 ">
+<div>
+
+
+<div className="flex flex-col lg:flex-row gap-8 justify-between px-4 lg:px-16 py-8 ">
       <div className="lg:w-1/2 space-y-8">
         <h1 className="text-4xl font-bold text-gray-800">Контакты</h1>
 
@@ -41,7 +45,17 @@ const Contacts = () => {
           className="border border-gray-300 rounded-lg shadow-sm"
         ></iframe>
       </div>
+
+
     </div>
+  
+
+
+<Otziv/>
+
+
+
+</div>
   );
 };
 
