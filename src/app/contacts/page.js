@@ -2,11 +2,11 @@ import React from 'react';
 
 const Contacts = () => {
   return (
-    <div className="flex flex-col lg:flex-row gap-8 justify-between px-4 lg:px-16 py-8 pt-32">
+    <div className="flex flex-col lg:flex-row gap-8 justify-between px-4 lg:px-16 py-8 ">
       <div className="lg:w-1/2 space-y-8">
         <h1 className="text-4xl font-bold text-gray-800">Контакты</h1>
 
-        <button className="btn bg-black text-white py-3 px-6 rounded-full hover:bg-gray-800 transition duration-300">
+        <button className="btn bg-primaryBlue text-white py-3 px-6 rounded-full hover:bg-blue-900 transition duration-300">
           SHOP.LEMARC
         </button>
 

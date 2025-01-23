@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa"; // For icons
+import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const Products = () => {
   const [showCategory, setShowCategory] = useState(false);
@@ -13,13 +12,11 @@ const Products = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    // Fetch categories
     fetch("https://bakend-wtc.onrender.com/api/v1/categories")
       .then((res) => res.json())
       .then((data) => setCategory(data))
       .catch((error) => console.error("Error fetching categories:", error));
 
-    // Fetch products
     fetch("https://bakend-wtc.onrender.com/api/v1/products")
       .then((res) => res.json())
       .then((data) => setProducts(data))
@@ -49,7 +46,7 @@ const Products = () => {
   };
 
   return (
-    <div className="flex flex-col items-start min-h-screen pt-16">
+    <div className="container flex flex-col min-h-screen">
       <div className="flex w-full max-w-7xl mx-auto mt-8">
         {/* Sidebar */}
         <aside className="w-1/4 p-4 mr-8 bg-gray-100 rounded-lg shadow-md">
@@ -89,21 +86,31 @@ const Products = () => {
 
         {/* Main Content */}
         <main className="w-3/4 p-4">
-          <h2 className="text-6xl font-extrabold mb-8 text-gray-900 leading-tight">
+          <h2 className="text-4xl font-extrabold mb-8 text-gray-900 leading-tight">
             Для грузовых и тяжелых коммерческих автомобилей
           </h2>
 
-          <div className="grid grid-cols-2 gap-12 mt-12">
+          <div className="grid grid-cols-2 gap-8 mt-8">
             {filteredProducts.map((product) => (
               <Link href={`/products/${product._id}`} key={product._id}>
-                <div className="flex flex-col h-full w-5/6 p-6 border-2 rounded-lg shadow-xl bg-gradient-to-r from-gray-50 via-gray-100 to-white cursor-pointer transition-transform transform hover:scale-105">
+                <div className="flex flex-col h-full w-full p-4 border rounded-lg shadow-md bg-gradient-to-r from-gray-50 via-gray-100 to-white cursor-pointer transition-transform transform hover:scale-105">
                   <img
-                    src={`https://bakend-wtc.onrender.com//${product.image.main_images[0]}`}
+                    src={
+                      product?.image?.main_images?.length
+                        ? 
+                          `https://bakend-wtc.onrender.com${product.image.main_images[0]}`
+                        : // Fallback if there's no `main_images` array
+                          "https://via.placeholder.com/300x200"
+                    }
                     alt={product.name}
-                    className="w-full h-[400px] object-cover rounded-lg mb-4"
+                    className="w-full h-64 object-cover rounded-lg mb-4"
+                    onError={(e) => {
+                      // Fallback if the image URL fails
+                      e.target.src = "https://via.placeholder.com/300x200";
+                    }}
                   />
                   <div className="mt-auto text-center">
-                    <h3 className="text-3xl font-bold">{product.name}</h3>
+                    <h3 className="text-lg font-semibold">{product.name}</h3>
                   </div>
                 </div>
               </Link>

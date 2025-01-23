@@ -30,20 +30,17 @@ export default function HomePage() {
         <section className=" container mx-auto">
           <Missiya />
         </section>
-        <section className=" container mx-auto">
+        <section className=" container mx-auto min-h-screen max-w-7xl">
           <Lineyka />
+          <ProductSwiper />
+
         </section>
         <section>
-          <ProductSwiper />
-          <section>
-            <section className='pt-10 pb-10'>
-              <HomeSwiper/>
-            </section>
-
-          </section>
-          <section>
+      
+       
+          {/* <section>
             <Partner/>
-          </section>
+          </section> */}
         </section>
         <section>
             <Otziv/>
