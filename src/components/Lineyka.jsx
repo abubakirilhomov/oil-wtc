@@ -90,6 +90,8 @@ const Lineyka = () => {
   const [selectedProduct, setSelectedProduct] = useState(products[0]);
   const [isImageFullScreen, setIsImageFullScreen] = useState(false);  
   const [showTechnology, setShowTechnology] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
 
   const handleImageClick = () => {
     setIsImageFullScreen(true); 
@@ -97,6 +99,10 @@ const Lineyka = () => {
 
   const handleCloseFullScreen = () => {
     setIsImageFullScreen(false); 
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   const getBackgroundClass = (name) => {
@@ -195,11 +201,58 @@ const Lineyka = () => {
                   Подобрать масло
                 </button>
                 <button
-                  className="bg-[#f1f1f1] px-6 py-3 rounded-full text-lg border text-red-600 border-red-600 hover:bg-[#e0e0e0]"
-                  onClick={() => setShowTechnology(!showTechnology)}
-                >
-                  О технологии
-                </button>
+  className="bg-[#f1f1f1] px-6 py-3 rounded-full text-lg border text-red-600 border-red-600 hover:bg-[#e0e0e0]"
+  onClick={toggleDropdown}
+>
+  О технологии
+</button>
+
+{isDropdownOpen && (
+  <div className="absolute top-[-300px] left-0 right-0 mx-auto w-full max-w-xl bg-gray-100 border border-gray-300 shadow-lg rounded-lg p-6 z-50">
+    <h3 className="text-2xl font-bold mb-4 text-center text-gray-800">
+      Спецификации: SAE J1034, ASTM D1384, ASTM D2809 и ASTM D4340
+    </h3>
+    <p className="text-md text-gray-700 leading-relaxed mb-4">
+      {selectedProduct.description2}
+    </p>
+
+    <div className="flex flex-col md:flex-row-reverse md:justify-between gap-6">
+      <div className="md:w-2/5 flex justify-center items-center">
+        <img
+          src={selectedProduct.img}
+          alt="Technology"
+          className="w-full h-auto object-contain rounded-md shadow"
+          onClick={handleImageClick}
+        />
+      </div>
+
+      <div className="md:w-3/5 flex flex-col gap-4">
+        {selectedProduct.title && (
+          <h4 className="text-xl font-semibold text-gray-800">
+            {selectedProduct.title}
+          </h4>
+        )}
+        {selectedProduct.description3 && (
+          <p className="text-md text-gray-700 leading-relaxed">
+            {selectedProduct.description3}
+          </p>
+        )}
+
+        {selectedProduct.title2 && (
+          <h4 className="text-xl font-semibold text-gray-800">
+            {selectedProduct.title2}
+          </h4>
+        )}
+        {selectedProduct.description4 && (
+          <p className="text-md text-gray-700 leading-relaxed">
+            {selectedProduct.description4}
+          </p>
+        )}
+      </div>
+    </div>
+  </div>
+)}
+
               </div>
             </div>
           </div>
