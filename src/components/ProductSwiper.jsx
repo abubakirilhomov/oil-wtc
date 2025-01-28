@@ -103,7 +103,7 @@ const ProductSwiper = () => {
         >
           {productChunks.map((chunk, index) => (
             <SwiperSlide key={index}>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {chunk.map((product) => {
                   // Check if main_images or all_images exist, then build the image URL
                   const mainImages = product?.image?.main_images || [];
