@@ -8,9 +8,9 @@ const Missiya = () => {
         backgroundImage: "url('https://sinteclubricants.ru/novaya-glavnaya-test/img/BG.png')",
       }}
     >
-      {/* Основной контент */}
-      <div className="w-full max-w-7xl grid grid-cols-2 gap-10 items-center rounded-lg shadow-lg bg-white p-8">
-        {/* Левая часть с текстом */}
+     
+      <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-10 items-center rounded-lg shadow-lg bg-white p-8">
+    
         <div className="text-left">
           <h2 className="text-5xl font-bold mb-6">НАША МИССИЯ</h2>
           <p className="text-primaryBlue font-bold text-2xl mb-6">
@@ -28,15 +28,15 @@ const Missiya = () => {
           <p className="text-xl font-bold">SINTEC — ВСЕГДА УМНЫЙ ВЫБОР!</p>
         </div>
 
-        {/* Правая часть с видео */}
-        <div>
-          <video
-            className="rounded-lg shadow-lg w-full h-auto"
-            controls
-            src="https://sinteclubricants.ru/novaya-glavnaya-test/img/tv-30sec.mp4"
-          >
-            Ваш браузер не поддерживает видео.
-          </video>
+        <div className="flex justify-center">
+          <iframe
+            className="rounded-lg shadow-lg w-full h-48 sm:h-56 lg:h-64"
+            src="https://www.youtube.com/embed/MjYZInyumfw"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
     </div>

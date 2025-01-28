@@ -166,7 +166,7 @@ const Lineyka = () => {
           ))}
         </div>
 
-        <div className="flex-1 p-6 border rounded-lg shadow-lg relative transition-all">
+        <div className="flex-1 p-6 border rounded-lg shadow-lg relative transition-all md:min-h-[63vh]">
           <div className="absolute top-[5px] right-12 transition-transform">
             <img
               src={selectedProduct.cornerImage}
@@ -197,9 +197,12 @@ const Lineyka = () => {
             </div>
 
             <div className="flex flex-col justify-between md:w-1/2">
-              <p className="text-md text-gray-700 mb-4 font-bold leading-relaxed">
-                {selectedProduct.description}
-              </p>
+            <p
+  className="text-md text-gray-700 mb-4 font-bold leading-relaxed overflow-y-auto max-h-64 min-h-24  "
+>
+  {selectedProduct.description}
+</p>
+
               <div className="flex gap-4 mt-auto">
                 <button className="bg-red-600 text-white px-6 py-3 rounded-full text-lg">
                   Подобрать масло
