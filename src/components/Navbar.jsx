@@ -4,17 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ChevronDown } from 'lucide-react';
 
 const navLinks = [
   { label: 'Новости', href: '/about-us' },
   { label: 'О Компании', href: '/news' },
   { label: 'Где купить', href: '#' },
   { label: 'Контакты', href: '/contacts' },
-
-
-
-
 ];
 
 function Navbar() {
@@ -25,6 +20,14 @@ function Navbar() {
   const handleNavigation = (href) => {
     router.push(href);
     setIsMenuOpen(false);
+  };
+
+  // Прокрутка до футера
+  const handleScrollToFooter = () => {
+    const footer = document.getElementById("footer");
+    if (footer) {
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -58,14 +61,10 @@ function Navbar() {
 
         <div className="hidden lg:flex lg:items-center space-x-4">
           <button
-            className="px-4 py-1 border rounded hover:bg-gray-50 flex items-center"
-            onClick={() => setIsLangModalOpen(true)}
+            onClick={handleScrollToFooter}
+            className="px-3 py-3 bg-primaryBlue text-white rounded-md"
           >
-            RU
-            <ChevronDown className="h-4 w-4 ml-1" />
-          </button>
-          <button className="px-3 py-3 bg-primaryBlue text-white rounded-md">
-            Подбор масла
+            Оставить заявку
           </button>
         </div>
 
@@ -97,7 +96,10 @@ function Navbar() {
           <button className="w-full px-4 py-1 text-base font-medium text-gray-700 border rounded hover:bg-gray-50 focus:outline-none">
             RU
           </button>
-          <button className="w-full px-4 py-2 text-base font-medium text-white bg-red-600 rounded hover:bg-red-700 focus:outline-none">
+          <button
+            onClick={handleScrollToFooter}
+            className="w-full px-4 py-2 text-base font-medium text-white bg-red-600 rounded hover:bg-red-700 focus:outline-none"
+          >
             Подбор масла
           </button>
         </div>

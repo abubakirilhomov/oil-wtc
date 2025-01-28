@@ -121,7 +121,7 @@ const ProductSwiper = () => {
                   return (
                     <Link
                       key={product._id}
-                      href={`/products/${product._id}`}
+                      href={`/products/`}
                     >
                       <div className="relative card card-compact bg-opacity-55 hover:bg-opacity-100 duration-300 bg-primaryBlue shadow-xl p-4">
                         <img

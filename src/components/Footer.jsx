@@ -14,7 +14,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 text-white py-12" id="footer">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4 max-w-7xl">
         {/* Logo Section */}
         <div className="text-center">
